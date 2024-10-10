@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://chyrohdu7f7ek"]
+[gd_scene load_steps=20 format=3 uid="uid://chyrohdu7f7ek"]
 
 [ext_resource type="Script" path="res://UI/MainWindow.cs" id="1_jllo3"]
 [ext_resource type="Texture2D" uid="uid://onjr5fjcckjg" path="res://Resources/Icons/Document-new.svg" id="2_btas0"]
@@ -8,6 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://d1xuvonay8wyb" path="res://Resources/Icons/Edit-copy.svg" id="6_qspqm"]
 [ext_resource type="Texture2D" uid="uid://drwwasy2on8sx" path="res://Resources/Icons/Edit-paste.svg" id="7_b46mw"]
 [ext_resource type="Script" path="res://UI/MapList.cs" id="8_2c1ar"]
+[ext_resource type="Texture2D" uid="uid://cnacvnn3an2td" path="res://Resources/Icons/Edit-undo.svg" id="8_3p5wn"]
+[ext_resource type="Texture2D" uid="uid://3ltf020825cd" path="res://Resources/Icons/View-zoom-in.svg" id="8_dav4v"]
+[ext_resource type="Texture2D" uid="uid://crkssm8o7u1r4" path="res://Resources/Icons/View-zoom-out.svg" id="9_3ty5p"]
+[ext_resource type="Texture2D" uid="uid://b7te1ervl4rlg" path="res://Resources/Icons/Antialias_Icon.svg" id="9_mfrc2"]
+[ext_resource type="Texture2D" uid="uid://dd8ls6gv1tut8" path="res://Resources/Icons/Emblem-person-blue.svg" id="10_duqnk"]
+[ext_resource type="Texture2D" uid="uid://rc621fh5f10c" path="res://Resources/Icons/View-zoom-1.svg" id="10_qycfb"]
+[ext_resource type="Texture2D" uid="uid://bqeb4o5nq0ure" path="res://Resources/Icons/Applications-system.svg" id="11_pykv2"]
+[ext_resource type="Texture2D" uid="uid://blkfrmvclxpjm" path="res://Resources/Icons/System-installer.svg" id="12_flbxr"]
+[ext_resource type="Texture2D" uid="uid://bbxxo68hrb2pk" path="res://Resources/Icons/Audio-x-generic.svg" id="13_t6kwf"]
+[ext_resource type="Texture2D" uid="uid://csvif2l45ol31" path="res://Resources/Icons/Edit-find.svg" id="14_m3xw8"]
+[ext_resource type="Texture2D" uid="uid://cnse8xw7lk85k" path="res://Resources/Icons/Media-playback-start.svg" id="15_dkjg6"]
 
 [node name="MainWindow" type="Control" node_paths=PackedStringArray("OpenProjDialog")]
 layout_mode = 3
@@ -86,6 +97,65 @@ icon = ExtResource("6_qspqm")
 [node name="Button6" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("7_b46mw")
+
+[node name="VSeparator2" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+
+[node name="Button15" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("8_3p5wn")
+
+[node name="VSeparator3" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+
+[node name="Button16" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("9_mfrc2")
+
+[node name="Button17" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("10_duqnk")
+
+[node name="VSeparator4" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+
+[node name="Button7" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("8_dav4v")
+
+[node name="Button8" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("9_3ty5p")
+
+[node name="Button9" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("10_qycfb")
+
+[node name="VSeparator5" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+
+[node name="Button10" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("11_pykv2")
+
+[node name="Button11" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("12_flbxr")
+
+[node name="Button12" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("13_t6kwf")
+
+[node name="Button14" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("14_m3xw8")
+
+[node name="VSeparator6" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+
+[node name="Button13" type="Button" parent="Root/VBoxContainer/Toolbar"]
+layout_mode = 2
+icon = ExtResource("15_dkjg6")
 
 [node name="HSplitContainer" type="HSplitContainer" parent="Root/VBoxContainer"]
 layout_mode = 2
