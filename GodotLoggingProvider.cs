@@ -27,6 +27,6 @@ internal class GodotLoggingProvider : AppenderSkeleton
         else if (loggingEvent.Level == Level.Notice)
             fgColor = "BLUE";
 
-        GD.PrintRich($"[color={fgColor}]{RenderLoggingEvent(loggingEvent)}[/color]");
+        GD.PrintRich($"[color={fgColor}]{RenderLoggingEvent(loggingEvent)} [/color]");
     }
 }

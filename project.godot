@@ -16,10 +16,15 @@ run/main_scene="res://UI/MainWindow.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+EditorMain="*res://EditorMain.cs"
+
 [display]
 
 window/size/viewport_width=1360
 window/size/viewport_height=780
+window/subwindows/embed_subwindows=false
 
 [dotnet]
 
