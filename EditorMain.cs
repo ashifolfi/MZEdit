@@ -21,6 +21,8 @@ public partial class EditorMain : Node
     public string ProjectPath;
     public MVSystem SystemData;
     public List<MVMapInfo?> MapInfos;
+    public List<MVActor?> Actors;
+    public List<MVClass?> Classes;
 
     public Action OnProjectLoaded;
 
@@ -40,6 +42,8 @@ public partial class EditorMain : Node
         ProjectPath = "";
         SystemData = null;
         MapInfos = null;
+        Actors = null;
+        Classes = null;
     }
 
     public void LoadProject(string projectPath)
@@ -54,6 +58,8 @@ public partial class EditorMain : Node
 
         string dataDir = Path.Combine(ProjectPath, "data");
         SystemData = JsonConvert.DeserializeObject<MVSystem>(File.ReadAllText(Path.Combine(dataDir, "System.json")));
+        Actors = JsonConvert.DeserializeObject<List<MVActor?>>(File.ReadAllText(Path.Combine(dataDir, "Actors.json")));
+        Classes = JsonConvert.DeserializeObject<List<MVClass?>>(File.ReadAllText(Path.Combine(dataDir, "Classes.json")));
         MapInfos = JsonConvert.DeserializeObject<List<MVMapInfo?>>(File.ReadAllText(Path.Combine(dataDir, "MapInfos.json")));
 
         Log.Info($"Loaded project {SystemData.GameTitle}");
