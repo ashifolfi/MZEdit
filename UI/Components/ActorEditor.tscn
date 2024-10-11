@@ -257,6 +257,7 @@ layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 3
 theme_override_constants/separation = 30
 
 [node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]

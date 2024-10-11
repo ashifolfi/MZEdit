@@ -30,3 +30,7 @@ window/subwindows/embed_subwindows=false
 [dotnet]
 
 project/assembly_name="MZEdit"
+
+[gui]
+
+theme/custom="res://Resources/EditorTheme.theme"
