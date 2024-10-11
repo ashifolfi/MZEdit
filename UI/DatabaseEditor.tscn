@@ -13,12 +13,16 @@ bg_color = Color(0.211765, 0.239216, 0.290196, 1)
 [sub_resource type="LabelSettings" id="LabelSettings_b51kw"]
 font_size = 32
 
-[node name="DatabaseEditor" type="Window"]
+[node name="DatabaseEditor" type="Window" node_paths=PackedStringArray("ActorList", "ActorEditor", "ClassList", "ItemList")]
 title = "Database"
 position = Vector2i(0, 24)
 size = Vector2i(1090, 864)
 unresizable = true
 script = ExtResource("1_n6u3m")
+ActorList = NodePath("Root/TabContainer/Actors/VBoxContainer/ItemList")
+ActorEditor = NodePath("Root/TabContainer/Actors/ActorEditor")
+ClassList = NodePath("Root/TabContainer/Classes/VBoxContainer/ItemList")
+ItemList = NodePath("Root/TabContainer/Items/VBoxContainer/ItemList")
 
 [node name="Root" type="PanelContainer" parent="."]
 anchors_preset = 15
@@ -38,58 +42,180 @@ collapsed = true
 dragger_visibility = 2
 metadata/_tab_index = 0
 
-[node name="VSplitContainer" type="VSplitContainer" parent="Root/TabContainer/Actors"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Actors"]
 layout_mode = 2
-collapsed = true
-dragger_visibility = 2
 
-[node name="Label" type="Label" parent="Root/TabContainer/Actors/VSplitContainer"]
+[node name="Label" type="Label" parent="Root/TabContainer/Actors/VBoxContainer"]
 layout_mode = 2
 text = "Actors"
 label_settings = SubResource("LabelSettings_b51kw")
 
-[node name="ItemList" type="ItemList" parent="Root/TabContainer/Actors/VSplitContainer"]
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Actors/VBoxContainer"]
 custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Actors/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
 
 [node name="ActorEditor" parent="Root/TabContainer/Actors" instance=ExtResource("2_257u2")]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Classes" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="Classes" type="HSplitContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 1
 
-[node name="Skills" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Classes"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/TabContainer/Classes/VBoxContainer"]
+layout_mode = 2
+text = "Classes"
+label_settings = SubResource("LabelSettings_b51kw")
+
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Classes/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Classes/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
+
+[node name="Skills" type="HSplitContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
-[node name="Items" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Skills"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/TabContainer/Skills/VBoxContainer"]
+layout_mode = 2
+text = "Skills"
+label_settings = SubResource("LabelSettings_b51kw")
+
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Skills/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Skills/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
+
+[node name="Items" type="HSplitContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 3
 
-[node name="Weapons" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Items"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/TabContainer/Items/VBoxContainer"]
+layout_mode = 2
+text = "Items"
+label_settings = SubResource("LabelSettings_b51kw")
+
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Items/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Items/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
+
+[node name="Weapons" type="HSplitContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 4
 
-[node name="Armors" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Weapons"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/TabContainer/Weapons/VBoxContainer"]
+layout_mode = 2
+text = "Weapons"
+label_settings = SubResource("LabelSettings_b51kw")
+
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Weapons/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Weapons/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
+
+[node name="Armors" type="HSplitContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 5
 
-[node name="Enemies" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Armors"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/TabContainer/Armors/VBoxContainer"]
+layout_mode = 2
+text = "Armors"
+label_settings = SubResource("LabelSettings_b51kw")
+
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Armors/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Armors/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
+
+[node name="Enemies" type="HSplitContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 6
 
-[node name="Troops" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Enemies"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/TabContainer/Enemies/VBoxContainer"]
+layout_mode = 2
+text = "Enemies"
+label_settings = SubResource("LabelSettings_b51kw")
+
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Enemies/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Enemies/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
+
+[node name="Troops" type="HSplitContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 7
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Root/TabContainer/Troops"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="Root/TabContainer/Troops/VBoxContainer"]
+layout_mode = 2
+text = "Troops"
+label_settings = SubResource("LabelSettings_b51kw")
+
+[node name="ItemList" type="ItemList" parent="Root/TabContainer/Troops/VBoxContainer"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="Root/TabContainer/Troops/VBoxContainer"]
+layout_mode = 2
+text = "Change Maximum"
 
 [node name="States" type="HBoxContainer" parent="Root/TabContainer"]
 visible = false
@@ -132,3 +258,4 @@ layout_mode = 2
 metadata/_tab_index = 15
 
 [connection signal="close_requested" from="." to="." method="OnClose"]
+[connection signal="item_selected" from="Root/TabContainer/Actors/VBoxContainer/ItemList" to="." method="OnActorSelected"]

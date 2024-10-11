@@ -105,11 +105,13 @@ popup/item_0/text = "CLASS"
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
+rounded = true
 
 [node name="MLBox" type="SpinBox" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
+rounded = true
 
 [node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
@@ -330,3 +332,11 @@ text = "Note"
 [node name="NoteField" type="TextEdit" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer5"]
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
+
+[connection signal="text_submitted" from="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2/NameField" to="." method="OnNameChanged"]
+[connection signal="text_submitted" from="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2/NickField" to="." method="OnNicknameChanged"]
+[connection signal="item_selected" from="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4/Class" to="." method="OnClassChanged"]
+[connection signal="value_changed" from="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4/ILBox" to="." method="OnInitialLevelChanged"]
+[connection signal="value_changed" from="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4/MLBox" to="." method="OnMaxLevelChanged"]
+[connection signal="text_changed" from="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer5/PFBox" to="." method="OnProfileChanged"]
+[connection signal="text_changed" from="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer5/NoteField" to="." method="OnNoteChanged"]
