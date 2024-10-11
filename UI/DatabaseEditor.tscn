@@ -1,13 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3ackpt0i31l1"]
+[gd_scene load_steps=4 format=3 uid="uid://c3ackpt0i31l1"]
 
 [ext_resource type="Script" path="res://UI/DatabaseEditor.cs" id="1_n6u3m"]
+[ext_resource type="PackedScene" uid="uid://i1d5vcjxjdkk" path="res://UI/Components/ActorEditor.tscn" id="2_257u2"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b51kw"]
 font_size = 32
 
 [node name="DatabaseEditor" type="Window"]
 title = "Database"
-position = Vector2i(0, 36)
+position = Vector2i(0, 24)
 size = Vector2i(1090, 864)
 unresizable = true
 script = ExtResource("1_n6u3m")
@@ -41,7 +42,12 @@ text = "Actors"
 label_settings = SubResource("LabelSettings_b51kw")
 
 [node name="ItemList" type="ItemList" parent="Root/TabContainer/Actors/VSplitContainer"]
+custom_minimum_size = Vector2(250, 0)
 layout_mode = 2
+
+[node name="ActorEditor" parent="Root/TabContainer/Actors" instance=ExtResource("2_257u2")]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Classes" type="HBoxContainer" parent="Root/TabContainer"]
 visible = false

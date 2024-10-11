@@ -184,9 +184,11 @@ size_flags_vertical = 3
 [node name="VSplitContainer" type="VSplitContainer" parent="Root/VBoxContainer/HSplitContainer"]
 custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
+split_offset = 70
 
 [node name="TabContainer" type="TabContainer" parent="Root/VBoxContainer/HSplitContainer/VSplitContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 current_tab = 0
 tabs_position = 1
 
@@ -221,6 +223,7 @@ metadata/_tab_index = 4
 
 [node name="Maps" type="Tree" parent="Root/VBoxContainer/HSplitContainer/VSplitContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 script = ExtResource("8_2c1ar")
 
 [node name="Panel" type="Panel" parent="Root/VBoxContainer/HSplitContainer"]

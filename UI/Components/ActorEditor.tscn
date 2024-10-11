@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://i1d5vcjxjdkk"]
+[gd_scene load_steps=2 format=3 uid="uid://i1d5vcjxjdkk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0y2dv"]
+outline_size = 2
 
 [node name="ActorEditor" type="Control"]
 layout_mode = 3
@@ -21,12 +24,284 @@ layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(450, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "General Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Name"
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Nickname"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LineEdit2" type="LineEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Class"
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Initial Level"
+
+[node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+text = "Max Level"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+selected = 0
+item_count = 1
+popup/item_0/text = "CLASS"
+
+[node name="SpinBox" type="SpinBox" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="SpinBox2" type="SpinBox" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+text = "Images"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Face"
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Character"
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "SV Battle"
+
+[node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3"]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="TextureRect3" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 3
+
+[node name="VBoxContainer6" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6"]
+layout_mode = 2
+text = "Initial Equipment"
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="HSplit" type="HSplitContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer"]
+layout_mode = 2
+split_offset = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+text = "Type"
+label_settings = SubResource("LabelSettings_0y2dv")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+text = "Weapon"
+
+[node name="Label3" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+text = "Shield"
+
+[node name="Label4" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+text = "Head"
+
+[node name="Label5" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+text = "Body"
+
+[node name="Label6" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+text = "Accessory"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer2"]
+layout_mode = 2
+text = "Equipment Item"
+label_settings = SubResource("LabelSettings_0y2dv")
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer6/Panel/VBoxContainer/HSplit/VBoxContainer2"]
+layout_mode = 2
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer"]
 layout_mode = 2
+theme_override_constants/separation = 30
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+[node name="VBoxContainer4" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+text = "Traits"
+
+[node name="Panel" type="Panel" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+
+[node name="HSplit" type="HSplitContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel/VBoxContainer"]
+layout_mode = 2
+split_offset = 100
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel/VBoxContainer/HSplit"]
 layout_mode = 2
 
-[node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+text = "Type"
+label_settings = SubResource("LabelSettings_0y2dv")
+
+[node name="HSeparator" type="HSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel/VBoxContainer/HSplit/VBoxContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel/VBoxContainer/HSplit"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel/VBoxContainer/HSplit/VBoxContainer2"]
+layout_mode = 2
+text = "Content"
+label_settings = SubResource("LabelSettings_0y2dv")
+
+[node name="HSeparator2" type="HSeparator" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer4/Panel/VBoxContainer/HSplit/VBoxContainer2"]
+layout_mode = 2
+
+[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer5"]
+layout_mode = 2
+text = "Note"
+
+[node name="TextEdit" type="TextEdit" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer5"]
+custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
