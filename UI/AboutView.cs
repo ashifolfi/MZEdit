@@ -5,9 +5,9 @@ namespace MZEdit.UI;
 
 public partial class AboutView : Window
 {
-	[Export] public VBoxContainer NamesContainer;
-	[Export] public RichTextLabel LicenseText;
-	[Export] public Label HeaderVerLabel;
+	[Export] private VBoxContainer NamesContainer;
+	[Export] private RichTextLabel LicenseText;
+	[Export] private Label HeaderVerLabel;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -30,7 +30,7 @@ public partial class AboutView : Window
 		LicenseText.Pop();
 	}
 
-	public void OnClose()
+	private void OnClose()
 	{
 		Hide();
 	}

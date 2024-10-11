@@ -11,6 +11,7 @@ public partial class MainWindow : Control
 	[Export] private FileDialog OpenProjDialog;
 	[Export] private DatabaseEditor DatabaseEditor;
 	[Export] private Window AboutWindow;
+	[Export] private ResourceViewer ResourceViewer;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -50,4 +51,40 @@ public partial class MainWindow : Control
 				break;
 		}
 	}
+
+	public void OnFileMenuPressed(int id)
+	{
+		switch(id)
+		{
+			case 0: // New Project
+				break;
+			case 1: // Open Project
+				OnOpenPressed();
+				break;
+			case 2: // Save Project
+				break;
+			case 3: // Close Project
+				break;
+			case 4: // Quit
+				GetTree().Quit();
+				break;
+		}
+	}
+
+    public void OnToolsMenuPressed(int id)
+    {
+		switch(id)
+		{
+			case 0: // Database
+				OnOpenDatabase();
+				break;
+			case 1: // Plugins
+				break;
+			case 2: // Sound test
+				break;
+			case 3: // Resource Manager
+				ResourceViewer.PopupCentered();
+				break;
+        }
+    }
 }

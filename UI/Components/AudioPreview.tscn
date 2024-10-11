@@ -1,0 +1,77 @@
+[gd_scene load_steps=6 format=3 uid="uid://dvcapxbw4sn2w"]
+
+[ext_resource type="Script" path="res://UI/Components/AudioPreview.cs" id="1_bu13v"]
+[ext_resource type="Texture2D" uid="uid://cqns3k61mtbw8" path="res://Resources/Icons/48x48/Media-seek-backward.svg" id="1_se2n3"]
+[ext_resource type="Texture2D" uid="uid://daopu710kl3r8" path="res://Resources/Icons/48x48/Media-playback-stop.svg" id="2_qhsvd"]
+[ext_resource type="Texture2D" uid="uid://cnse8xw7lk85k" path="res://Resources/Icons/48x48/Media-playback-start.svg" id="3_gfuga"]
+[ext_resource type="Texture2D" uid="uid://b85c1byjnn2l4" path="res://Resources/Icons/48x48/Media-seek-forward.svg" id="4_3g5tf"]
+
+[node name="AudioPreview" type="VBoxContainer" node_paths=PackedStringArray("AudioInfo", "SeekBar", "EndTimeLabel", "PausePlayButton", "AudioPlayer")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bu13v")
+AudioInfo = NodePath("RichTextLabel")
+SeekBar = NodePath("HBoxContainer/HSlider")
+EndTimeLabel = NodePath("HBoxContainer/Label")
+PausePlayButton = NodePath("HBoxContainer2/Button4")
+AudioPlayer = NodePath("AudioStreamPlayer")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "0:00"
+
+[node name="HSlider" type="HSlider" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+step = 0.0
+scrollable = false
+
+[node name="Label" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+text = "X:XX"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="."]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("1_se2n3")
+
+[node name="Button2" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("2_qhsvd")
+
+[node name="Button4" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+toggle_mode = true
+icon = ExtResource("3_gfuga")
+
+[node name="Button3" type="Button" parent="HBoxContainer2"]
+layout_mode = 2
+icon = ExtResource("4_3g5tf")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="drag_ended" from="HBoxContainer/HSlider" to="." method="OnSeekBarDragEnd"]
+[connection signal="drag_started" from="HBoxContainer/HSlider" to="." method="OnSeekBarDragStart"]
+[connection signal="pressed" from="HBoxContainer2/Button" to="." method="OnSeekLeftPressed"]
+[connection signal="pressed" from="HBoxContainer2/Button2" to="." method="OnStopPressed"]
+[connection signal="pressed" from="HBoxContainer2/Button4" to="." method="OnPlayPressed"]
+[connection signal="pressed" from="HBoxContainer2/Button3" to="." method="OnSeekRightPressed"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="Stop"]

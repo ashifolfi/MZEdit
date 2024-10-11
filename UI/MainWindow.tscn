@@ -1,31 +1,32 @@
-[gd_scene load_steps=23 format=3 uid="uid://chyrohdu7f7ek"]
+[gd_scene load_steps=24 format=3 uid="uid://chyrohdu7f7ek"]
 
 [ext_resource type="Script" path="res://UI/MainWindow.cs" id="1_jllo3"]
-[ext_resource type="Texture2D" uid="uid://onjr5fjcckjg" path="res://Resources/Icons/Document-new.svg" id="2_btas0"]
-[ext_resource type="Texture2D" uid="uid://bmn3m1jobhjj0" path="res://Resources/Icons/Document-open.svg" id="3_hebto"]
-[ext_resource type="Texture2D" uid="uid://fc5iql7fofh2" path="res://Resources/Icons/Document-save.svg" id="4_pkn7h"]
-[ext_resource type="Texture2D" uid="uid://degjyxysf6ja7" path="res://Resources/Icons/Edit-cut.svg" id="5_aw507"]
-[ext_resource type="Texture2D" uid="uid://d1xuvonay8wyb" path="res://Resources/Icons/Edit-copy.svg" id="6_qspqm"]
-[ext_resource type="Texture2D" uid="uid://drwwasy2on8sx" path="res://Resources/Icons/Edit-paste.svg" id="7_b46mw"]
+[ext_resource type="Texture2D" uid="uid://onjr5fjcckjg" path="res://Resources/Icons/48x48/Document-new.svg" id="2_btas0"]
+[ext_resource type="Texture2D" uid="uid://bmn3m1jobhjj0" path="res://Resources/Icons/48x48/Document-open.svg" id="3_hebto"]
+[ext_resource type="Texture2D" uid="uid://fc5iql7fofh2" path="res://Resources/Icons/48x48/Document-save.svg" id="4_pkn7h"]
+[ext_resource type="Texture2D" uid="uid://degjyxysf6ja7" path="res://Resources/Icons/48x48/Edit-cut.svg" id="5_aw507"]
+[ext_resource type="Texture2D" uid="uid://d1xuvonay8wyb" path="res://Resources/Icons/48x48/Edit-copy.svg" id="6_qspqm"]
+[ext_resource type="Texture2D" uid="uid://drwwasy2on8sx" path="res://Resources/Icons/48x48/Edit-paste.svg" id="7_b46mw"]
 [ext_resource type="Script" path="res://UI/MapList.cs" id="8_2c1ar"]
-[ext_resource type="Texture2D" uid="uid://cnacvnn3an2td" path="res://Resources/Icons/Edit-undo.svg" id="8_3p5wn"]
-[ext_resource type="Texture2D" uid="uid://3ltf020825cd" path="res://Resources/Icons/View-zoom-in.svg" id="8_dav4v"]
-[ext_resource type="Texture2D" uid="uid://crkssm8o7u1r4" path="res://Resources/Icons/View-zoom-out.svg" id="9_3ty5p"]
-[ext_resource type="Texture2D" uid="uid://b7te1ervl4rlg" path="res://Resources/Icons/Antialias_Icon.svg" id="9_mfrc2"]
-[ext_resource type="Texture2D" uid="uid://dd8ls6gv1tut8" path="res://Resources/Icons/Emblem-person-blue.svg" id="10_duqnk"]
-[ext_resource type="Texture2D" uid="uid://rc621fh5f10c" path="res://Resources/Icons/View-zoom-1.svg" id="10_qycfb"]
-[ext_resource type="Texture2D" uid="uid://bqeb4o5nq0ure" path="res://Resources/Icons/Applications-system.svg" id="11_pykv2"]
-[ext_resource type="Texture2D" uid="uid://blkfrmvclxpjm" path="res://Resources/Icons/System-installer.svg" id="12_flbxr"]
-[ext_resource type="Texture2D" uid="uid://bbxxo68hrb2pk" path="res://Resources/Icons/Audio-x-generic.svg" id="13_t6kwf"]
-[ext_resource type="Texture2D" uid="uid://csvif2l45ol31" path="res://Resources/Icons/Edit-find.svg" id="14_m3xw8"]
-[ext_resource type="Texture2D" uid="uid://cnse8xw7lk85k" path="res://Resources/Icons/Media-playback-start.svg" id="15_dkjg6"]
+[ext_resource type="Texture2D" uid="uid://cnacvnn3an2td" path="res://Resources/Icons/48x48/Edit-undo.svg" id="8_3p5wn"]
+[ext_resource type="Texture2D" uid="uid://3ltf020825cd" path="res://Resources/Icons/48x48/View-zoom-in.svg" id="8_dav4v"]
+[ext_resource type="Texture2D" uid="uid://crkssm8o7u1r4" path="res://Resources/Icons/48x48/View-zoom-out.svg" id="9_3ty5p"]
+[ext_resource type="Texture2D" uid="uid://b7te1ervl4rlg" path="res://Resources/Icons/48x48/Antialias_Icon.svg" id="9_mfrc2"]
+[ext_resource type="Texture2D" uid="uid://dd8ls6gv1tut8" path="res://Resources/Icons/48x48/Emblem-person-blue.svg" id="10_duqnk"]
+[ext_resource type="Texture2D" uid="uid://rc621fh5f10c" path="res://Resources/Icons/48x48/View-zoom-1.svg" id="10_qycfb"]
+[ext_resource type="Texture2D" uid="uid://bqeb4o5nq0ure" path="res://Resources/Icons/48x48/Applications-system.svg" id="11_pykv2"]
+[ext_resource type="Texture2D" uid="uid://blkfrmvclxpjm" path="res://Resources/Icons/48x48/System-installer.svg" id="12_flbxr"]
+[ext_resource type="Texture2D" uid="uid://bbxxo68hrb2pk" path="res://Resources/Icons/48x48/Audio-x-generic.svg" id="13_t6kwf"]
+[ext_resource type="Texture2D" uid="uid://csvif2l45ol31" path="res://Resources/Icons/48x48/Edit-find.svg" id="14_m3xw8"]
+[ext_resource type="Texture2D" uid="uid://cnse8xw7lk85k" path="res://Resources/Icons/48x48/Media-playback-start.svg" id="15_dkjg6"]
 [ext_resource type="PackedScene" uid="uid://c3ackpt0i31l1" path="res://UI/DatabaseEditor.tscn" id="20_28x7b"]
 [ext_resource type="PackedScene" uid="uid://ihn8j8q4b03x" path="res://UI/AboutView.tscn" id="21_qonmm"]
+[ext_resource type="PackedScene" uid="uid://d4s72yshak61" path="res://UI/ResourceViewer.tscn" id="22_12x0u"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uig3r"]
 bg_color = Color(0.113725, 0.133333, 0.160784, 1)
 
-[node name="MainWindow" type="Control" node_paths=PackedStringArray("OpenProjDialog", "DatabaseEditor", "AboutWindow")]
+[node name="MainWindow" type="Control" node_paths=PackedStringArray("OpenProjDialog", "DatabaseEditor", "AboutWindow", "ResourceViewer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,6 +37,7 @@ script = ExtResource("1_jllo3")
 OpenProjDialog = NodePath("FileDialog")
 DatabaseEditor = NodePath("DatabaseEditor")
 AboutWindow = NodePath("About")
+ResourceViewer = NodePath("ResourceViewer")
 
 [node name="Root" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -79,6 +81,14 @@ auto_translate_mode = 1
 
 [node name="Tools" type="PopupMenu" parent="Root/VBoxContainer/MenuBar"]
 auto_translate_mode = 1
+item_count = 4
+item_0/text = "Database"
+item_1/text = "Plugins"
+item_1/id = 1
+item_2/text = "Sound Test"
+item_2/id = 2
+item_3/text = "Resource Manager"
+item_3/id = 3
 
 [node name="Game" type="PopupMenu" parent="Root/VBoxContainer/MenuBar"]
 auto_translate_mode = 1
@@ -287,6 +297,11 @@ visible = false
 [node name="About" parent="." instance=ExtResource("21_qonmm")]
 visible = false
 
+[node name="ResourceViewer" parent="." instance=ExtResource("22_12x0u")]
+visible = false
+
+[connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/File" to="." method="OnFileMenuPressed"]
+[connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/Tools" to="." method="OnToolsMenuPressed"]
 [connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/Help" to="." method="OnHelpMenuIdPressed"]
 [connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button2" to="." method="OnOpenPressed"]
 [connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button10" to="." method="OnOpenDatabase"]

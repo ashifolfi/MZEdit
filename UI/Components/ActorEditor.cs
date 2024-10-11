@@ -1,6 +1,8 @@
 using Godot;
 using System;
 
+namespace MZEdit.UI.Components;
+
 public partial class ActorEditor : Control
 {
     [Export] public int ActorID { get; set; }

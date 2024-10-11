@@ -1,7 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://c3ackpt0i31l1"]
+[gd_scene load_steps=5 format=3 uid="uid://c3ackpt0i31l1"]
 
 [ext_resource type="Script" path="res://UI/DatabaseEditor.cs" id="1_n6u3m"]
 [ext_resource type="PackedScene" uid="uid://i1d5vcjxjdkk" path="res://UI/Components/ActorEditor.tscn" id="2_257u2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihqxk"]
+content_margin_left = 5.0
+content_margin_top = 5.0
+content_margin_right = 5.0
+content_margin_bottom = 5.0
+bg_color = Color(0.211765, 0.239216, 0.290196, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_b51kw"]
 font_size = 32
@@ -13,17 +20,16 @@ size = Vector2i(1090, 864)
 unresizable = true
 script = ExtResource("1_n6u3m")
 
-[node name="Root" type="Panel" parent="."]
+[node name="Root" type="PanelContainer" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_ihqxk")
 
 [node name="TabContainer" type="TabContainer" parent="Root"]
 layout_mode = 2
-offset_right = 1090.0
-offset_bottom = 864.0
 current_tab = 0
 
 [node name="Actors" type="HSplitContainer" parent="Root/TabContainer"]
