@@ -98,6 +98,17 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
+[node name="VBoxContainer5" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer5"]
+layout_mode = 2
+text = "Profile"
+
+[node name="TextEdit" type="TextEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer5"]
+custom_minimum_size = Vector2(300, 80)
+layout_mode = 2
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
