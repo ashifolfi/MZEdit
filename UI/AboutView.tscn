@@ -1,10 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://ihn8j8q4b03x"]
+[gd_scene load_steps=8 format=3 uid="uid://ihn8j8q4b03x"]
 
-[ext_resource type="Texture2D" uid="uid://oiudfw0j8qh7" path="res://Resources/EmventLogo.svg" id="1_fntdh"]
 [ext_resource type="Script" path="res://UI/AboutView.cs" id="1_mwpui"]
+[ext_resource type="Texture2D" uid="uid://bbwwpldbqmovj" path="res://Resources/EmventLogo.png" id="2_hvacu"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_wyq8r"]
 font_size = 48
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wrsak"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wfkt0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kn0rw"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8b0o8"]
 
 [node name="About" type="Window" node_paths=PackedStringArray("NamesContainer", "LicenseText", "HeaderVerLabel")]
 title = "About MZEdit"
@@ -43,8 +51,9 @@ alignment = 1
 [node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
-texture = ExtResource("1_fntdh")
-expand_mode = 4
+texture = ExtResource("2_hvacu")
+expand_mode = 5
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
 layout_mode = 2
@@ -59,6 +68,10 @@ label_settings = SubResource("LabelSettings_wyq8r")
 [node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(128, 0)
 layout_mode = 2
+theme_override_styles/fill = SubResource("StyleBoxEmpty_wrsak")
+theme_override_styles/background = SubResource("StyleBoxEmpty_wfkt0")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kn0rw")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_8b0o8")
 bbcode_enabled = true
 text = "An Open Source RPG Maker MZ Editor
 
