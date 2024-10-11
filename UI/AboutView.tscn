@@ -1,0 +1,136 @@
+[gd_scene load_steps=4 format=3 uid="uid://ihn8j8q4b03x"]
+
+[ext_resource type="Texture2D" uid="uid://oiudfw0j8qh7" path="res://Resources/EmventLogo.svg" id="1_fntdh"]
+[ext_resource type="Script" path="res://UI/AboutView.cs" id="1_mwpui"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_wyq8r"]
+font_size = 48
+
+[node name="About" type="Window" node_paths=PackedStringArray("NamesContainer", "LicenseText", "HeaderVerLabel")]
+title = "About MZEdit"
+size = Vector2i(700, 500)
+script = ExtResource("1_mwpui")
+NamesContainer = NodePath("Panel/VBoxContainer/MarginContainer2/TabContainer/Authors/MarginContainer/AuthorList")
+LicenseText = NodePath("Panel/VBoxContainer/MarginContainer2/TabContainer/License/MarginContainer/LicenseText")
+HeaderVerLabel = NodePath("Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer/Version")
+
+[node name="Panel" type="Panel" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+texture = ExtResource("1_fntdh")
+expand_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Version" type="Label" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+text = "$VERSION$"
+label_settings = SubResource("LabelSettings_wyq8r")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+bbcode_enabled = true
+text = "An Open Source RPG Maker MZ Editor
+
+(C) 2023 K. 'ashi' J."
+fit_content = true
+autowrap_mode = 0
+
+[node name="MarginContainer2" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TabContainer" type="TabContainer" parent="Panel/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Authors" type="Control" parent="Panel/VBoxContainer/MarginContainer2/TabContainer"]
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/MarginContainer2/TabContainer/Authors"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="AuthorList" type="VBoxContainer" parent="Panel/VBoxContainer/MarginContainer2/TabContainer/Authors/MarginContainer"]
+layout_mode = 2
+
+[node name="License" type="Control" parent="Panel/VBoxContainer/MarginContainer2/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer/MarginContainer2/TabContainer/License"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="LicenseText" type="RichTextLabel" parent="Panel/VBoxContainer/MarginContainer2/TabContainer/License/MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer3" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+alignment = 1
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer3/HBoxContainer"]
+layout_mode = 2
+text = "Close"
+
+[connection signal="close_requested" from="." to="." method="OnClose"]
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer3/HBoxContainer/Button" to="." method="OnClose"]

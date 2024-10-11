@@ -14,7 +14,8 @@ config/name="MZEdit"
 config/version="0.0.1"
 run/main_scene="res://UI/MainWindow.tscn"
 config/features=PackedStringArray("4.3", "C#", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://Resources/EmventLogo.png"
+config/icon="res://Resources/EmventLogo.svg"
 
 [autoload]
 

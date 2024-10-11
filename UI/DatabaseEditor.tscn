@@ -1,17 +1,18 @@
-[gd_scene load_steps=2 format=3 uid="uid://c3ackpt0i31l1"]
+[gd_scene load_steps=3 format=3 uid="uid://c3ackpt0i31l1"]
+
+[ext_resource type="Script" path="res://UI/DatabaseEditor.cs" id="1_n6u3m"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_b51kw"]
 font_size = 32
 
 [node name="DatabaseEditor" type="Window"]
-transparent_bg = true
 title = "Database"
 position = Vector2i(0, 36)
-size = Vector2i(1120, 864)
+size = Vector2i(1090, 864)
 unresizable = true
-transparent = true
+script = ExtResource("1_n6u3m")
 
-[node name="Root" type="PanelContainer" parent="."]
+[node name="Root" type="Panel" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -20,10 +21,13 @@ grow_vertical = 2
 
 [node name="TabContainer" type="TabContainer" parent="Root"]
 layout_mode = 2
+offset_right = 1090.0
+offset_bottom = 864.0
 current_tab = 0
 
 [node name="Actors" type="HSplitContainer" parent="Root/TabContainer"]
 layout_mode = 2
+dragger_visibility = 2
 metadata/_tab_index = 0
 
 [node name="VSplitContainer" type="VSplitContainer" parent="Root/TabContainer/Actors"]
@@ -84,12 +88,34 @@ visible = false
 layout_mode = 2
 metadata/_tab_index = 9
 
-[node name="Common Events" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="Tilesets" type="HBoxContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 10
 
-[node name="System" type="HBoxContainer" parent="Root/TabContainer"]
+[node name="Common Events" type="HBoxContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 11
+
+[node name="System 1" type="HBoxContainer" parent="Root/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 12
+
+[node name="System 2" type="HBoxContainer" parent="Root/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 13
+
+[node name="Types" type="HBoxContainer" parent="Root/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 14
+
+[node name="Terms" type="HBoxContainer" parent="Root/TabContainer"]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 15
+
+[connection signal="close_requested" from="." to="." method="OnClose"]

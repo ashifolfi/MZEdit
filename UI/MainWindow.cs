@@ -9,11 +9,19 @@ public partial class MainWindow : Control
 	private static readonly ILog Log = LogManager.GetLogger("MainWindow");
 
 	[Export] private FileDialog OpenProjDialog;
+	[Export] private DatabaseEditor DatabaseEditor;
+	[Export] private Window AboutWindow;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
 	{
 		Log.Info("MainWindow Ready!");
+		AboutWindow.Hide();
+	}
+
+	public void OnOpenDatabase()
+	{
+		DatabaseEditor.PopupCentered();
 	}
 
 	public void OnOpenPressed()
@@ -25,5 +33,15 @@ public partial class MainWindow : Control
 	{
 		EditorMain.Instance.LoadProject(path);
 		GetViewport().GetWindow().Title = $"MZEdit - {EditorMain.Instance.SystemData.GameTitle}";
+	}
+
+	public void OnHelpMenuIdPressed(int id)
+	{
+		switch(id)
+		{
+			case 1: // About MZEdit
+				AboutWindow.PopupCentered();
+				break;
+		}
 	}
 }

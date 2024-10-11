@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://chyrohdu7f7ek"]
+[gd_scene load_steps=22 format=3 uid="uid://chyrohdu7f7ek"]
 
 [ext_resource type="Script" path="res://UI/MainWindow.cs" id="1_jllo3"]
 [ext_resource type="Texture2D" uid="uid://onjr5fjcckjg" path="res://Resources/Icons/Document-new.svg" id="2_btas0"]
@@ -19,8 +19,10 @@
 [ext_resource type="Texture2D" uid="uid://bbxxo68hrb2pk" path="res://Resources/Icons/Audio-x-generic.svg" id="13_t6kwf"]
 [ext_resource type="Texture2D" uid="uid://csvif2l45ol31" path="res://Resources/Icons/Edit-find.svg" id="14_m3xw8"]
 [ext_resource type="Texture2D" uid="uid://cnse8xw7lk85k" path="res://Resources/Icons/Media-playback-start.svg" id="15_dkjg6"]
+[ext_resource type="PackedScene" uid="uid://c3ackpt0i31l1" path="res://UI/DatabaseEditor.tscn" id="20_28x7b"]
+[ext_resource type="PackedScene" uid="uid://ihn8j8q4b03x" path="res://UI/AboutView.tscn" id="21_qonmm"]
 
-[node name="MainWindow" type="Control" node_paths=PackedStringArray("OpenProjDialog")]
+[node name="MainWindow" type="Control" node_paths=PackedStringArray("OpenProjDialog", "DatabaseEditor", "AboutWindow")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -29,6 +31,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jllo3")
 OpenProjDialog = NodePath("FileDialog")
+DatabaseEditor = NodePath("DatabaseEditor")
+AboutWindow = NodePath("About")
 
 [node name="Root" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -46,6 +50,16 @@ layout_mode = 2
 flat = true
 
 [node name="File" type="PopupMenu" parent="Root/VBoxContainer/MenuBar"]
+item_count = 5
+item_0/text = "New Project"
+item_1/text = "Open Project"
+item_1/id = 1
+item_2/text = "Save Project"
+item_2/id = 2
+item_3/text = "Close Project"
+item_3/id = 3
+item_4/text = "Quit"
+item_4/id = 4
 
 [node name="Edit" type="PopupMenu" parent="Root/VBoxContainer/MenuBar"]
 auto_translate_mode = 1
@@ -67,6 +81,12 @@ auto_translate_mode = 1
 
 [node name="Help" type="PopupMenu" parent="Root/VBoxContainer/MenuBar"]
 auto_translate_mode = 1
+item_count = 3
+item_0/text = "MZEdit Documentation"
+item_1/text = "RPG Maker MZ Documentation"
+item_1/id = 2
+item_2/text = "About MZEdit"
+item_2/id = 1
 
 [node name="Toolbar" type="HBoxContainer" parent="Root/VBoxContainer"]
 layout_mode = 2
@@ -247,12 +267,20 @@ custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 
 [node name="FileDialog" type="FileDialog" parent="."]
-title = "Open Project"
+title = "Open a File"
 size = Vector2i(324, 180)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
 filters = PackedStringArray("*.rmmzproject;RPGMaker MZ Project")
 
+[node name="DatabaseEditor" parent="." instance=ExtResource("20_28x7b")]
+visible = false
+
+[node name="About" parent="." instance=ExtResource("21_qonmm")]
+visible = false
+
+[connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/Help" to="." method="OnHelpMenuIdPressed"]
 [connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button2" to="." method="OnOpenPressed"]
+[connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button10" to="." method="OnOpenDatabase"]
 [connection signal="file_selected" from="FileDialog" to="." method="OnOpenFilePicked"]
