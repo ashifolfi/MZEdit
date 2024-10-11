@@ -39,6 +39,9 @@ public partial class MainWindow : Control
 	{
 		switch(id)
 		{
+			case 2: // RPG Maker MZ Documentation
+				OS.ShellOpen("https://rpgmakerofficial.com/product/MZ_help-en/#t=01.html");
+				break;
 			case 1: // About MZEdit
 				AboutWindow.PopupCentered();
 				break;
