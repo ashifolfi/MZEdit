@@ -23,6 +23,7 @@ public partial class EditorMain : Node
     public List<MVMapInfo?> MapInfos;
     public List<MVActor?> Actors;
     public List<MVClass?> Classes;
+    public List<MVItem?> Items;
 
     public Action OnProjectLoaded;
 
@@ -60,6 +61,7 @@ public partial class EditorMain : Node
         SystemData = JsonConvert.DeserializeObject<MVSystem>(File.ReadAllText(Path.Combine(dataDir, "System.json")));
         Actors = JsonConvert.DeserializeObject<List<MVActor?>>(File.ReadAllText(Path.Combine(dataDir, "Actors.json")));
         Classes = JsonConvert.DeserializeObject<List<MVClass?>>(File.ReadAllText(Path.Combine(dataDir, "Classes.json")));
+        Items = JsonConvert.DeserializeObject<List<MVItem?>>(File.ReadAllText(Path.Combine(dataDir, "Items.json")));
         MapInfos = JsonConvert.DeserializeObject<List<MVMapInfo?>>(File.ReadAllText(Path.Combine(dataDir, "MapInfos.json")));
 
         Log.Info($"Loaded project {SystemData.GameTitle}");
