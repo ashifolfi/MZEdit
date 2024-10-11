@@ -47,6 +47,26 @@ public partial class EditorMain : Node
         Classes = null;
     }
 
+    public void SaveProject()
+    {
+        string dataDir = Path.Combine(ProjectPath, "data");
+
+        string systemSerialized = JsonConvert.SerializeObject(SystemData);
+        string actorsSerialized = JsonConvert.SerializeObject(Actors);
+        string classeSerialized = JsonConvert.SerializeObject(Classes);
+        string itemsSerialized = JsonConvert.SerializeObject(Items);
+        string mapinfosSerialized = JsonConvert.SerializeObject(MapInfos);
+
+        // TEMP: rename to new while we make sure everything works
+        File.WriteAllText(Path.Combine(dataDir, "System.json"), systemSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "Actors.json"), actorsSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "Classes.json"), classeSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "Items.json"), itemsSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), mapinfosSerialized);
+
+        Log.Info($"Saved project {SystemData.GameTitle}");
+    }
+
     public void LoadProject(string projectPath)
     {
         if (!File.Exists(projectPath))

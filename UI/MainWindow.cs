@@ -11,7 +11,7 @@ public partial class MainWindow : Control
 	[Export] private FileDialog OpenProjDialog;
 	[Export] private DatabaseEditor DatabaseEditor;
 	[Export] private Window AboutWindow;
-	[Export] private ResourceViewer ResourceViewer;
+	[Export] private ResourceManager ResourceViewer;
 
 	// Called when the node enters the scene tree for the first time.
 	public override void _Ready()
@@ -28,6 +28,11 @@ public partial class MainWindow : Control
 	public void OnOpenPressed()
 	{
 		OpenProjDialog.PopupCentered(new Vector2I(640, 480));
+	}
+
+	public void OnSavePressed()
+	{
+		EditorMain.Instance.SaveProject();
 	}
 
 	public void OnOpenFilePicked(string path)
@@ -62,6 +67,7 @@ public partial class MainWindow : Control
 				OnOpenPressed();
 				break;
 			case 2: // Save Project
+				OnSavePressed();
 				break;
 			case 3: // Close Project
 				break;

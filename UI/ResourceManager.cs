@@ -7,7 +7,7 @@ using System.Security;
 
 namespace MZEdit.UI;
 
-public partial class ResourceViewer : Window
+public partial class ResourceManager : Window
 {
     private static readonly ILog Log = LogManager.GetLogger("ResourceViewer");
 

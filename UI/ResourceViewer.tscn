@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://d4s72yshak61"]
 
-[ext_resource type="Script" path="res://UI/ResourceViewer.cs" id="1_qauky"]
+[ext_resource type="Script" path="res://UI/ResourceManager.cs" id="1_4wpn7"]
 [ext_resource type="PackedScene" uid="uid://cl6gvg8j7jpeo" path="res://UI/Components/ImagePreview.tscn" id="2_52qf4"]
 [ext_resource type="PackedScene" uid="uid://dvcapxbw4sn2w" path="res://UI/Components/AudioPreview.tscn" id="3_nk54t"]
 
@@ -11,11 +11,11 @@ content_margin_right = 5.0
 content_margin_bottom = 5.0
 bg_color = Color(0.211765, 0.239216, 0.290196, 1)
 
-[node name="ResourceViewer" type="Window" node_paths=PackedStringArray("FileTree", "AudioControl", "ImageControl")]
-title = "Resource Browser"
+[node name="ResourceManager" type="Window" node_paths=PackedStringArray("FileTree", "AudioControl", "ImageControl")]
+title = "Resource Manager"
 position = Vector2i(0, 24)
 size = Vector2i(650, 350)
-script = ExtResource("1_qauky")
+script = ExtResource("1_4wpn7")
 FileTree = NodePath("Panel/HBoxContainer/Tree")
 AudioControl = NodePath("Panel/HBoxContainer/VBoxContainer/PanelContainer/AudioPreview")
 ImageControl = NodePath("Panel/HBoxContainer/VBoxContainer/PanelContainer/ImagePreview")

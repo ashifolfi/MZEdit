@@ -58,6 +58,7 @@ flat = true
 [node name="File" type="PopupMenu" parent="Root/VBoxContainer/MenuBar"]
 item_count = 5
 item_0/text = "New Project"
+item_0/disabled = true
 item_1/text = "Open Project"
 item_1/id = 1
 item_2/text = "Save Project"
@@ -107,6 +108,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
+disabled = true
 icon = ExtResource("2_btas0")
 
 [node name="Button2" type="Button" parent="Root/VBoxContainer/Toolbar"]
@@ -304,5 +306,6 @@ visible = false
 [connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/Tools" to="." method="OnToolsMenuPressed"]
 [connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/Help" to="." method="OnHelpMenuIdPressed"]
 [connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button2" to="." method="OnOpenPressed"]
+[connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button3" to="." method="OnSavePressed"]
 [connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button10" to="." method="OnOpenDatabase"]
 [connection signal="file_selected" from="FileDialog" to="." method="OnOpenFilePicked"]
