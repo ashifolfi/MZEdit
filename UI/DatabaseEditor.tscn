@@ -28,6 +28,7 @@ current_tab = 0
 
 [node name="Actors" type="HSplitContainer" parent="Root/TabContainer"]
 layout_mode = 2
+collapsed = true
 dragger_visibility = 2
 metadata/_tab_index = 0
 

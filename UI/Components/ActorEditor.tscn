@@ -1,15 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://i1d5vcjxjdkk"]
+[gd_scene load_steps=3 format=3 uid="uid://i1d5vcjxjdkk"]
+
+[ext_resource type="Script" path="res://UI/Components/ActorEditor.cs" id="1_oy5m7"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_0y2dv"]
 outline_size = 2
 
-[node name="ActorEditor" type="Control"]
+[node name="ActorEditor" type="Control" node_paths=PackedStringArray("FieldFace", "FieldCharacter", "FieldBattler", "FieldName", "FieldNickName", "FieldClass", "FieldInitialLevel", "FieldMaxLevel", "FieldProfile", "FieldNote")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_oy5m7")
+FieldFace = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Button/FaceTex")
+FieldCharacter = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Button/CharTex")
+FieldBattler = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/Button/SVTex")
+FieldName = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2/NameField")
+FieldNickName = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2/NickField")
+FieldClass = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4/Class")
+FieldInitialLevel = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4/ILBox")
+FieldMaxLevel = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4/MLBox")
+FieldProfile = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer5/PFBox")
+FieldNote = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer5/NoteField")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -50,11 +63,11 @@ text = "Nickname"
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="LineEdit" type="LineEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="NameField" type="LineEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="LineEdit2" type="LineEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="NickField" type="LineEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
 
@@ -81,19 +94,19 @@ text = "Max Level"
 [node name="HBoxContainer4" type="HBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="OptionButton" type="OptionButton" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="Class" type="OptionButton" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 selected = 0
 item_count = 1
 popup/item_0/text = "CLASS"
 
-[node name="SpinBox" type="SpinBox" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="ILBox" type="SpinBox" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
 
-[node name="SpinBox2" type="SpinBox" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
+[node name="MLBox" type="SpinBox" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/HBoxContainer4"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.5
@@ -105,7 +118,7 @@ layout_mode = 2
 layout_mode = 2
 text = "Profile"
 
-[node name="TextEdit" type="TextEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer5"]
+[node name="PFBox" type="TextEdit" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer/VBoxContainer5"]
 custom_minimum_size = Vector2(300, 80)
 layout_mode = 2
 
@@ -133,7 +146,7 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="TextureRect" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Button"]
+[node name="FaceTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -156,7 +169,7 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="TextureRect2" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Button"]
+[node name="CharTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,7 +192,7 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="TextureRect3" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/Button"]
+[node name="SVTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/Button"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -314,6 +327,6 @@ layout_mode = 2
 layout_mode = 2
 text = "Note"
 
-[node name="TextEdit" type="TextEdit" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer5"]
+[node name="NoteField" type="TextEdit" parent="PanelContainer/HBoxContainer/VBoxContainer2/VBoxContainer5"]
 custom_minimum_size = Vector2(300, 200)
 layout_mode = 2
