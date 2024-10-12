@@ -27,6 +27,7 @@ public partial class EditorMain : Node
     public List<MVEvent?> CommonEvents;
     public List<MVItem?> Items;
     public List<MVMapInfo?> MapInfos;
+    public List<MVSkill?> Skills;
     public List<MVState?> States;
     public List<MVTileset?> Tilesets;
     public List<MVWeapon?> Weapons;
@@ -95,6 +96,7 @@ public partial class EditorMain : Node
         File.WriteAllText(Path.Combine(dataDir, "CommonEvents.json"), JsonConvert.SerializeObject(CommonEvents));
         File.WriteAllText(Path.Combine(dataDir, "Items.json"), JsonConvert.SerializeObject(Items));
         File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), JsonConvert.SerializeObject(MapInfos));
+        File.WriteAllText(Path.Combine(dataDir, "Skills.json"), JsonConvert.SerializeObject(Skills));
         File.WriteAllText(Path.Combine(dataDir, "States.json"), JsonConvert.SerializeObject(States));
         File.WriteAllText(Path.Combine(dataDir, "Tilesets.json"), JsonConvert.SerializeObject(Tilesets));
         File.WriteAllText(Path.Combine(dataDir, "Weapons.json"), JsonConvert.SerializeObject(Weapons));
@@ -121,6 +123,7 @@ public partial class EditorMain : Node
         CommonEvents = JsonConvert.DeserializeObject<List<MVEvent?>>(File.ReadAllText(Path.Combine(dataDir, "CommonEvents.json")));
         Items = JsonConvert.DeserializeObject<List<MVItem?>>(File.ReadAllText(Path.Combine(dataDir, "Items.json")));
         MapInfos = JsonConvert.DeserializeObject<List<MVMapInfo?>>(File.ReadAllText(Path.Combine(dataDir, "MapInfos.json")));
+        Skills = JsonConvert.DeserializeObject<List<MVSkill?>>(File.ReadAllText(Path.Combine(dataDir, "Skills.json")));
         States = JsonConvert.DeserializeObject<List<MVState?>>(File.ReadAllText(Path.Combine(dataDir, "States.json")));
         Tilesets = JsonConvert.DeserializeObject<List<MVTileset?>>(File.ReadAllText(Path.Combine(dataDir, "Tilesets.json")));
         Weapons = JsonConvert.DeserializeObject<List<MVWeapon?>>(File.ReadAllText(Path.Combine(dataDir, "Weapons.json")));
