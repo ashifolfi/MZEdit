@@ -24,6 +24,7 @@ public partial class EditorMain : Node
     public List<MVActor?> Actors;
     public List<MVClass?> Classes;
     public List<MVItem?> Items;
+    public List<MVEvent?> CommonEvents;
     public Action OnProjectLoaded;
 
     /// <summary>
@@ -77,14 +78,15 @@ public partial class EditorMain : Node
 
         string systemSerialized = JsonConvert.SerializeObject(SystemData);
         string actorsSerialized = JsonConvert.SerializeObject(Actors);
-        string classeSerialized = JsonConvert.SerializeObject(Classes);
+        string classesSerialized = JsonConvert.SerializeObject(Classes);
+        string commonEventsSerialized = JsonConvert.SerializeObject(CommonEvents);
         string itemsSerialized = JsonConvert.SerializeObject(Items);
         string mapinfosSerialized = JsonConvert.SerializeObject(MapInfos);
 
-        // TEMP: rename to new while we make sure everything works
         File.WriteAllText(Path.Combine(dataDir, "System.json"), systemSerialized);
         File.WriteAllText(Path.Combine(dataDir, "Actors.json"), actorsSerialized);
-        File.WriteAllText(Path.Combine(dataDir, "Classes.json"), classeSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "Classes.json"), classesSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "CommonEvents.json"), commonEventsSerialized);
         File.WriteAllText(Path.Combine(dataDir, "Items.json"), itemsSerialized);
         File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), mapinfosSerialized);
 
@@ -106,6 +108,7 @@ public partial class EditorMain : Node
         SystemData = JsonConvert.DeserializeObject<MVSystem>(File.ReadAllText(Path.Combine(dataDir, "System.json")));
         Actors = JsonConvert.DeserializeObject<List<MVActor?>>(File.ReadAllText(Path.Combine(dataDir, "Actors.json")));
         Classes = JsonConvert.DeserializeObject<List<MVClass?>>(File.ReadAllText(Path.Combine(dataDir, "Classes.json")));
+        CommonEvents = JsonConvert.DeserializeObject<List<MVEvent?>>(File.ReadAllText(Path.Combine(dataDir, "CommonEvents.json")));
         Items = JsonConvert.DeserializeObject<List<MVItem?>>(File.ReadAllText(Path.Combine(dataDir, "Items.json")));
         MapInfos = JsonConvert.DeserializeObject<List<MVMapInfo?>>(File.ReadAllText(Path.Combine(dataDir, "MapInfos.json")));
 
