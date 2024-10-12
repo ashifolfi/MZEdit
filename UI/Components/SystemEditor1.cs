@@ -11,6 +11,9 @@ public partial class SystemEditor1 : Control
     [Export] private Tree PartyTree;
     [Export] private LineEdit Currency;
     [Export] private ColorPickerButton WindowColor;
+    [Export] private CharacterButton BoatButton;
+    [Export] private CharacterButton ShipButton;
+    [Export] private CharacterButton AirshipButton;
     [ExportGroup("Options")]
     [Export] private CheckButton optAutosave;
     [Export] private CheckButton optDisplayTp;
@@ -155,6 +158,20 @@ public partial class SystemEditor1 : Control
             EditorMain.Instance.SystemData.WindowTone[1] / 255,
             EditorMain.Instance.SystemData.WindowTone[2] / 255,
             EditorMain.Instance.SystemData.WindowTone[3] / 255
+        );
+
+        // set vehicle graphics
+        BoatButton.SetCharacter(
+            EditorMain.Instance.SystemData.Boat.CharacterName,
+            EditorMain.Instance.SystemData.Boat.CharacterIndex
+        );
+        ShipButton.SetCharacter(
+            EditorMain.Instance.SystemData.Ship.CharacterName,
+            EditorMain.Instance.SystemData.Ship.CharacterIndex
+        );
+        AirshipButton.SetCharacter(
+            EditorMain.Instance.SystemData.Airship.CharacterName,
+            EditorMain.Instance.SystemData.Airship.CharacterIndex
         );
     }
 

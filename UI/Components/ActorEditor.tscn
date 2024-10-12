@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://i1d5vcjxjdkk"]
+[gd_scene load_steps=4 format=3 uid="uid://i1d5vcjxjdkk"]
 
 [ext_resource type="Script" path="res://UI/Components/ActorEditor.cs" id="1_oy5m7"]
 [ext_resource type="Script" path="res://UI/Components/GroupBoxContainer.cs" id="2_tr2b8"]
+[ext_resource type="Script" path="res://UI/Components/CharacterButton.cs" id="3_w1tu4"]
 
-[node name="ActorEditor" type="Control" node_paths=PackedStringArray("FieldFace", "FieldCharacter", "FieldBattler", "FieldName", "FieldNickName", "FieldClass", "FieldInitialLevel", "FieldMaxLevel", "FieldProfile", "FieldNote", "TraitsTree", "EquipmentTree")]
+[node name="ActorEditor" type="Control" node_paths=PackedStringArray("FieldCharacter", "FieldBattler", "FieldName", "FieldNickName", "FieldClass", "FieldInitialLevel", "FieldMaxLevel", "FieldProfile", "FieldNote", "TraitsTree", "EquipmentTree")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,9 +12,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_oy5m7")
-FieldFace = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Button/FaceTex")
-FieldCharacter = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Button/CharTex")
-FieldBattler = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/Button/SVTex")
+FieldCharacter = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Button")
+FieldBattler = NodePath("PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/Button")
 FieldName = NodePath("PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer/VBoxContainer/HBoxContainer2/NameField")
 FieldNickName = NodePath("PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer/VBoxContainer/HBoxContainer2/NickField")
 FieldClass = NodePath("PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer/VBoxContainer/HBoxContainer4/Class")
@@ -148,15 +148,6 @@ custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
 
-[node name="FaceTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 3
-
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 6
@@ -170,15 +161,7 @@ text = "Character"
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-
-[node name="CharTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer2/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 3
+script = ExtResource("3_w1tu4")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
@@ -193,15 +176,7 @@ text = "SV Battle"
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-
-[node name="SVTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/VBoxContainer2/HBoxContainer/VBoxContainer3/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 3
+script = ExtResource("3_w1tu4")
 
 [node name="startingEquipBox" type="Container" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

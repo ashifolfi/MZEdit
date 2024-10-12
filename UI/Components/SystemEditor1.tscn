@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://1l1r5mykobe4"]
+[gd_scene load_steps=4 format=3 uid="uid://1l1r5mykobe4"]
 
 [ext_resource type="Script" path="res://UI/Components/GroupBoxContainer.cs" id="1_ukmfi"]
 [ext_resource type="Script" path="res://UI/Components/SystemEditor1.cs" id="1_yqouf"]
+[ext_resource type="Script" path="res://UI/Components/CharacterButton.cs" id="3_guthm"]
 
-[node name="SystemEditor1" type="Control" node_paths=PackedStringArray("MusicTree", "SoundTree", "PartyTree", "Currency", "WindowColor", "optAutosave", "optDisplayTp", "optExtraExp", "optFloorDeath", "optFollowers", "optKeyItemsNumber", "optSlipDeath", "optTransparent", "battleSystem", "battleScreen", "gameTitle", "optDrawTitle")]
+[node name="SystemEditor1" type="Control" node_paths=PackedStringArray("MusicTree", "SoundTree", "PartyTree", "Currency", "WindowColor", "BoatButton", "ShipButton", "AirshipButton", "optAutosave", "optDisplayTp", "optExtraExp", "optFloorDeath", "optFollowers", "optKeyItemsNumber", "optSlipDeath", "optTransparent", "battleSystem", "battleScreen", "gameTitle", "optDrawTitle")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,6 +19,9 @@ SoundTree = NodePath("PanelContainer/HBoxContainer/VBoxContainer3/GroupBoxContai
 PartyTree = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/GroupBoxContainer/Tree")
 Currency = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/GroupBoxContainer/LineEdit")
 WindowColor = NodePath("PanelContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/ColorPickerButton")
+BoatButton = NodePath("PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer/Button")
+ShipButton = NodePath("PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer2/Button")
+AirshipButton = NodePath("PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer3/Button")
 optAutosave = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/GroupBoxContainer4/VBoxContainer/CheckButton8")
 optDisplayTp = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/GroupBoxContainer4/VBoxContainer/CheckButton5")
 optExtraExp = NodePath("PanelContainer/HBoxContainer/VBoxContainer2/GroupBoxContainer4/VBoxContainer/CheckButton6")
@@ -112,21 +116,13 @@ size_flags_horizontal = 2
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Face"
+text = "Boat:"
 
 [node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-
-[node name="FaceTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 3
+script = ExtResource("3_guthm")
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
@@ -135,21 +131,13 @@ size_flags_horizontal = 6
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Character"
+text = "Ship:"
 
 [node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer2"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-
-[node name="CharTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer2/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 3
+script = ExtResource("3_guthm")
 
 [node name="VBoxContainer3" type="VBoxContainer" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer"]
 layout_mode = 2
@@ -158,21 +146,13 @@ size_flags_horizontal = 10
 [node name="Label" type="Label" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer3"]
 layout_mode = 2
 size_flags_horizontal = 3
-text = "SV Battle"
+text = "Airship:"
 
 [node name="Button" type="Button" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer3"]
 custom_minimum_size = Vector2(128, 128)
 layout_mode = 2
 size_flags_horizontal = 0
-
-[node name="SVTex" type="TextureRect" parent="PanelContainer/HBoxContainer/VBoxContainer/GroupBoxContainer2/VBoxContainer2/HBoxContainer/VBoxContainer3/Button"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-expand_mode = 3
+script = ExtResource("3_guthm")
 
 [node name="GroupBoxContainer" type="Container" parent="PanelContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2

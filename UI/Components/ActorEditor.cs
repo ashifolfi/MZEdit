@@ -20,9 +20,9 @@ public partial class ActorEditor : Control
     public Action ActorEdited;
 
     [ExportCategory("SubControls (PRIVATE)")]
-    [Export] private TextureRect FieldFace;
-    [Export] private TextureRect FieldCharacter;
-    [Export] private TextureRect FieldBattler;
+    //[Export] private TextureRect FieldFace;
+    [Export] private CharacterButton FieldCharacter;
+    [Export] private CharacterButton FieldBattler;
     [Export] private LineEdit FieldName;
     [Export] private LineEdit FieldNickName;
     [Export] private OptionButton FieldClass;
@@ -82,6 +82,8 @@ public partial class ActorEditor : Control
         FieldMaxLevel.Value = m_Actor.MaxLevel;
         FieldProfile.Text = m_Actor.Profile;
         FieldNote.Text = m_Actor.Note;
+
+        FieldCharacter.SetCharacter(m_Actor.CharacterName, m_Actor.CharacterIndex);
     }
 
     private void OnInitialLevelChanged(float value)
