@@ -23,8 +23,9 @@ public partial class EditorMain : Node
     public List<MVMapInfo?> MapInfos;
     public List<MVActor?> Actors;
     public List<MVClass?> Classes;
-    public List<MVItem?> Items;
     public List<MVEvent?> CommonEvents;
+    public List<MVItem?> Items;
+    public List<MVTileset?> Tilesets;
     public Action OnProjectLoaded;
 
     /// <summary>
@@ -50,6 +51,7 @@ public partial class EditorMain : Node
         MapInfos = null;
         Actors = null;
         Classes = null;
+        CommonEvents = null;
         DirtyProject = false;
     }
 
@@ -82,6 +84,7 @@ public partial class EditorMain : Node
         string commonEventsSerialized = JsonConvert.SerializeObject(CommonEvents);
         string itemsSerialized = JsonConvert.SerializeObject(Items);
         string mapinfosSerialized = JsonConvert.SerializeObject(MapInfos);
+        string tilesetsSerialized = JsonConvert.SerializeObject(Tilesets);
 
         File.WriteAllText(Path.Combine(dataDir, "System.json"), systemSerialized);
         File.WriteAllText(Path.Combine(dataDir, "Actors.json"), actorsSerialized);
@@ -89,6 +92,7 @@ public partial class EditorMain : Node
         File.WriteAllText(Path.Combine(dataDir, "CommonEvents.json"), commonEventsSerialized);
         File.WriteAllText(Path.Combine(dataDir, "Items.json"), itemsSerialized);
         File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), mapinfosSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "Tilesets.json"), tilesetsSerialized);
 
         Log.Info($"Saved project {SystemData.GameTitle}");
         DirtyProject = false;
@@ -111,6 +115,7 @@ public partial class EditorMain : Node
         CommonEvents = JsonConvert.DeserializeObject<List<MVEvent?>>(File.ReadAllText(Path.Combine(dataDir, "CommonEvents.json")));
         Items = JsonConvert.DeserializeObject<List<MVItem?>>(File.ReadAllText(Path.Combine(dataDir, "Items.json")));
         MapInfos = JsonConvert.DeserializeObject<List<MVMapInfo?>>(File.ReadAllText(Path.Combine(dataDir, "MapInfos.json")));
+        Tilesets = JsonConvert.DeserializeObject<List<MVTileset?>>(File.ReadAllText(Path.Combine(dataDir, "Tilesets.json")));
 
         Log.Info($"Loaded project {SystemData.GameTitle}");
         OnProjectLoaded?.Invoke();

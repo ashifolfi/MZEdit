@@ -8,6 +8,7 @@ public class MVEventCommand
 {
     [JsonProperty("code")] public int Code;
     [JsonProperty("indent")] public int? Indent;
+    // gross but required
     [JsonProperty("parameters")] public List<object> Parameters;
 }
 
