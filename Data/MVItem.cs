@@ -6,23 +6,6 @@ namespace MZEdit.Data;
 
 public class MVItem
 {
-    public struct SEffect
-    {
-        [JsonProperty("code")] public int Code;
-        [JsonProperty("dataId")] public int DataId;
-        [JsonProperty("value1")] public float Value1;
-        [JsonProperty("value2")] public float Value2;
-    }
-
-    public struct SDamage
-    {
-        [JsonProperty("critical")] public bool Critical;
-        [JsonProperty("elementId")] public int ElementId;
-        [JsonProperty("formula")] public string Formula;
-        [JsonProperty("type")] public int Type;
-        [JsonProperty("variance")] public int Variance;
-    }
-
     [JsonProperty("id")] public int Id;
 
     [JsonProperty("name")] public string Name;
@@ -39,5 +22,6 @@ public class MVItem
     [JsonProperty("speed")] public int Speed;
     [JsonProperty("successRate")] public int SuccessRate;
     [JsonProperty("tpGain")] public int TpGain;
-    [JsonProperty("effects")] public List<SEffect> Effects;
+    [JsonProperty("effects")] public List<MVEffect> Effects;
+    [JsonProperty("damage")] public MVDamage Damage;
 }
