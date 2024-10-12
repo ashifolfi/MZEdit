@@ -24,8 +24,12 @@ public partial class EditorMain : Node
     public List<MVActor?> Actors;
     public List<MVClass?> Classes;
     public List<MVItem?> Items;
-
     public Action OnProjectLoaded;
+
+    /// <summary>
+    /// Indicates if any unsaved changes are present or not
+    /// </summary>
+    public bool DirtyProject { get; private set; }
 
     public override void _EnterTree()
     {
@@ -45,6 +49,26 @@ public partial class EditorMain : Node
         MapInfos = null;
         Actors = null;
         Classes = null;
+        DirtyProject = false;
+    }
+
+    public void LaunchPlaytest()
+    {
+#if GODOT_WINDOWS
+        string nwPath = "";
+        // check if we are an editor build via checking if this exists (it's not packed)
+        if (Godot.FileAccess.FileExists("res://unpacked/nwjs/win-sdk/nw.exe"))
+        {
+            nwPath = ProjectSettings.GlobalizePath("res://unpacked/nwjs/win-sdk/nw.exe");
+        }
+        else
+        {
+            // exported build, it'll be next to the executable
+            nwPath = Path.Combine(OS.GetExecutablePath(), "nwjs", "win-sdk", "nw.exe");
+        }
+
+        OS.CreateProcess(nwPath, new[] { ProjectPath });
+#endif
     }
 
     public void SaveProject()
@@ -65,6 +89,7 @@ public partial class EditorMain : Node
         File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), mapinfosSerialized);
 
         Log.Info($"Saved project {SystemData.GameTitle}");
+        DirtyProject = false;
     }
 
     public void LoadProject(string projectPath)

@@ -21,7 +21,7 @@ public partial class ImagePreview : VBoxContainer
         }
     }
 
-    [ExportGroup("SubControls (PRIVATE)")]
+    [ExportCategory("SubControls (PRIVATE)")]
     [Export] private TextureRect ImageRect;
     [Export] private Slider ZoomSlider;
     [Export] private Camera2D ZoomCamera;

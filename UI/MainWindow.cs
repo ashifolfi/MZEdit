@@ -1,6 +1,8 @@
 using Godot;
 using log4net;
+using MZEdit.UI.Components;
 using System;
+using System.Runtime.CompilerServices;
 
 namespace MZEdit.UI;
 
@@ -8,6 +10,11 @@ public partial class MainWindow : Control
 {
 	private static readonly ILog Log = LogManager.GetLogger("MainWindow");
 
+	[ExportCategory("SubControls (PRIVATE)")]
+	[Export] private MenuBar MainMenubar;
+	[Export] private HBoxContainer MainToolbar;
+	[Export] private MapList MapList;
+	[ExportGroup("Dialogs")]
 	[Export] private FileDialog OpenProjDialog;
 	[Export] private DatabaseEditor DatabaseEditor;
 	[Export] private Window AboutWindow;
@@ -18,9 +25,90 @@ public partial class MainWindow : Control
 	{
 		Log.Info("MainWindow Ready!");
 		AboutWindow.Hide();
+		NoProjectUI();
+
+		EditorMain.Instance.OnProjectLoaded += OnProjectLoad;
 	}
 
-	public void OnOpenDatabase()
+
+	/// <summary>
+	/// Changes the UI state into no project mode
+	/// </summary>
+	private void NoProjectUI()
+	{
+		DatabaseEditor.Hide();
+		ResourceViewer.Hide();
+
+        // disable certain menu items
+        {
+            var menu = MainMenubar.GetNode<PopupMenu>("File");
+			menu.SetItemDisabled(menu.GetItemIndex(2), true);
+            menu.SetItemDisabled(menu.GetItemIndex(3), true);
+        }
+
+		{
+            var menu = MainMenubar.GetNode<PopupMenu>("Tools");
+            menu.SetItemDisabled(menu.GetItemIndex(0), true);
+            menu.SetItemDisabled(menu.GetItemIndex(1), true);
+            menu.SetItemDisabled(menu.GetItemIndex(2), true);
+            menu.SetItemDisabled(menu.GetItemIndex(3), true);
+        }
+
+		MainToolbar.GetNode<Button>("btnSave").Disabled = true;
+        MainToolbar.GetNode<Button>("btnUndo").Disabled = true;
+        MainToolbar.GetNode<Button>("btnCut").Disabled = true;
+        MainToolbar.GetNode<Button>("btnCopy").Disabled = true;
+        MainToolbar.GetNode<Button>("btnPaste").Disabled = true;
+        MainToolbar.GetNode<Button>("btnModeTiles").Disabled = true;
+        MainToolbar.GetNode<Button>("btnModeEvents").Disabled = true;
+        MainToolbar.GetNode<Button>("btnZoomIn").Disabled = true;
+        MainToolbar.GetNode<Button>("btnZoomOut").Disabled = true;
+        MainToolbar.GetNode<Button>("btnZoom11").Disabled = true;
+        MainToolbar.GetNode<Button>("btnDatabase").Disabled = true;
+        MainToolbar.GetNode<Button>("btnPlugins").Disabled = true;
+        MainToolbar.GetNode<Button>("btnSound").Disabled = true;
+        MainToolbar.GetNode<Button>("btnSearch").Disabled = true;
+        MainToolbar.GetNode<Button>("btnTestPlay").Disabled = true;
+    }
+
+    private void OnProjectLoad()
+    {
+        DatabaseEditor.Hide();
+        ResourceViewer.Hide();
+
+        // disable certain menu items
+        {
+            var menu = MainMenubar.GetNode<PopupMenu>("File");
+            menu.SetItemDisabled(menu.GetItemIndex(2), false);
+            menu.SetItemDisabled(menu.GetItemIndex(3), false);
+        }
+
+        {
+            var menu = MainMenubar.GetNode<PopupMenu>("Tools");
+            menu.SetItemDisabled(menu.GetItemIndex(0), false);
+            menu.SetItemDisabled(menu.GetItemIndex(1), false);
+            menu.SetItemDisabled(menu.GetItemIndex(2), false);
+            menu.SetItemDisabled(menu.GetItemIndex(3), false);
+        }
+
+        MainToolbar.GetNode<Button>("btnSave").Disabled = false;
+        MainToolbar.GetNode<Button>("btnUndo").Disabled = false;
+        MainToolbar.GetNode<Button>("btnCut").Disabled = false;
+        MainToolbar.GetNode<Button>("btnCopy").Disabled = false;
+        MainToolbar.GetNode<Button>("btnPaste").Disabled = false;
+        MainToolbar.GetNode<Button>("btnModeTiles").Disabled = false;
+        MainToolbar.GetNode<Button>("btnModeEvents").Disabled = false;
+        MainToolbar.GetNode<Button>("btnZoomIn").Disabled = false;
+        MainToolbar.GetNode<Button>("btnZoomOut").Disabled = false;
+        MainToolbar.GetNode<Button>("btnZoom11").Disabled = false;
+        MainToolbar.GetNode<Button>("btnDatabase").Disabled = false;
+        MainToolbar.GetNode<Button>("btnPlugins").Disabled = false;
+        MainToolbar.GetNode<Button>("btnSound").Disabled = false;
+        MainToolbar.GetNode<Button>("btnSearch").Disabled = false;
+        MainToolbar.GetNode<Button>("btnTestPlay").Disabled = false;
+    }
+
+    public void OnOpenDatabase()
 	{
 		DatabaseEditor.PopupCentered();
 	}
@@ -34,6 +122,12 @@ public partial class MainWindow : Control
 	{
 		EditorMain.Instance.SaveProject();
 	}
+
+	public void OnPlaytestPressed()
+	{
+        EditorMain.Instance.SaveProject();
+        EditorMain.Instance.LaunchPlaytest();
+    }
 
 	public void OnOpenFilePicked(string path)
 	{
@@ -70,6 +164,7 @@ public partial class MainWindow : Control
 				OnSavePressed();
 				break;
 			case 3: // Close Project
+				NoProjectUI();
 				break;
 			case 4: // Quit
 				GetTree().Quit();

@@ -1,9 +1,7 @@
 using Godot;
 using Godot.Collections;
 using log4net;
-using System;
 using System.IO;
-using System.Security;
 
 namespace MZEdit.UI;
 
@@ -11,7 +9,7 @@ public partial class ResourceManager : Window
 {
     private static readonly ILog Log = LogManager.GetLogger("ResourceViewer");
 
-    [ExportGroup("SubControls (PRIVATE)")]
+    [ExportCategory("SubControls (PRIVATE)")]
     [Export] private Tree FileTree;
     [Export] private Components.AudioPreview AudioControl;
     [Export] private Components.ImagePreview ImageControl;

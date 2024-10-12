@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://chyrohdu7f7ek"]
+[gd_scene load_steps=25 format=3 uid="uid://chyrohdu7f7ek"]
 
 [ext_resource type="Script" path="res://UI/MainWindow.cs" id="1_jllo3"]
 [ext_resource type="Texture2D" uid="uid://onjr5fjcckjg" path="res://Resources/Icons/48x48/Document-new.svg" id="2_btas0"]
@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://degjyxysf6ja7" path="res://Resources/Icons/48x48/Edit-cut.svg" id="5_aw507"]
 [ext_resource type="Texture2D" uid="uid://d1xuvonay8wyb" path="res://Resources/Icons/48x48/Edit-copy.svg" id="6_qspqm"]
 [ext_resource type="Texture2D" uid="uid://drwwasy2on8sx" path="res://Resources/Icons/48x48/Edit-paste.svg" id="7_b46mw"]
-[ext_resource type="Script" path="res://UI/MapList.cs" id="8_2c1ar"]
+[ext_resource type="Script" path="res://UI/Components/MapList.cs" id="8_2c1ar"]
 [ext_resource type="Texture2D" uid="uid://cnacvnn3an2td" path="res://Resources/Icons/48x48/Edit-undo.svg" id="8_3p5wn"]
 [ext_resource type="Texture2D" uid="uid://3ltf020825cd" path="res://Resources/Icons/48x48/View-zoom-in.svg" id="8_dav4v"]
 [ext_resource type="Texture2D" uid="uid://crkssm8o7u1r4" path="res://Resources/Icons/48x48/View-zoom-out.svg" id="9_3ty5p"]
@@ -22,11 +22,12 @@
 [ext_resource type="PackedScene" uid="uid://c3ackpt0i31l1" path="res://UI/DatabaseEditor.tscn" id="20_28x7b"]
 [ext_resource type="PackedScene" uid="uid://ihn8j8q4b03x" path="res://UI/AboutView.tscn" id="21_qonmm"]
 [ext_resource type="PackedScene" uid="uid://d4s72yshak61" path="res://UI/ResourceViewer.tscn" id="22_12x0u"]
+[ext_resource type="Script" path="res://UI/UnsavedChangesDialog.cs" id="23_5avfj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uig3r"]
 bg_color = Color(0.113725, 0.133333, 0.160784, 1)
 
-[node name="MainWindow" type="Control" node_paths=PackedStringArray("OpenProjDialog", "DatabaseEditor", "AboutWindow", "ResourceViewer")]
+[node name="MainWindow" type="Control" node_paths=PackedStringArray("MainMenubar", "MainToolbar", "MapList", "OpenProjDialog", "DatabaseEditor", "AboutWindow", "ResourceViewer")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -34,6 +35,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_jllo3")
+MainMenubar = NodePath("Root/VBoxContainer/MenuBar")
+MainToolbar = NodePath("Root/VBoxContainer/Toolbar")
+MapList = NodePath("Root/VBoxContainer/HSplitContainer/VSplitContainer/Maps")
 OpenProjDialog = NodePath("FileDialog")
 DatabaseEditor = NodePath("DatabaseEditor")
 AboutWindow = NodePath("About")
@@ -106,90 +110,90 @@ item_2/id = 1
 [node name="Toolbar" type="HBoxContainer" parent="Root/VBoxContainer"]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnNew" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 disabled = true
 icon = ExtResource("2_btas0")
 
-[node name="Button2" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnOpen" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("3_hebto")
 
-[node name="Button3" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnSave" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("4_pkn7h")
 
 [node name="VSeparator" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 
-[node name="Button4" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnCut" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("5_aw507")
 
-[node name="Button5" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnCopy" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("6_qspqm")
 
-[node name="Button6" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnPaste" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("7_b46mw")
 
 [node name="VSeparator2" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 
-[node name="Button15" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnUndo" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("8_3p5wn")
 
 [node name="VSeparator3" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 
-[node name="Button16" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnModeTiles" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("9_mfrc2")
 
-[node name="Button17" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnModeEvents" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("10_duqnk")
 
 [node name="VSeparator4" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 
-[node name="Button7" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnZoomIn" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("8_dav4v")
 
-[node name="Button8" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnZoomOut" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("9_3ty5p")
 
-[node name="Button9" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnZoom11" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("10_qycfb")
 
 [node name="VSeparator5" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 
-[node name="Button10" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnDatabase" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("11_pykv2")
 
-[node name="Button11" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnPlugins" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("12_flbxr")
 
-[node name="Button12" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnSound" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("13_t6kwf")
 
-[node name="Button14" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnSearch" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("14_m3xw8")
 
 [node name="VSeparator6" type="VSeparator" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 
-[node name="Button13" type="Button" parent="Root/VBoxContainer/Toolbar"]
+[node name="btnTestPlay" type="Button" parent="Root/VBoxContainer/Toolbar"]
 layout_mode = 2
 icon = ExtResource("15_dkjg6")
 
@@ -287,7 +291,7 @@ layout_mode = 2
 
 [node name="FileDialog" type="FileDialog" parent="."]
 title = "Open a File"
-size = Vector2i(324, 180)
+size = Vector2i(337, 197)
 ok_button_text = "Open"
 file_mode = 0
 access = 2
@@ -302,10 +306,19 @@ visible = false
 [node name="ResourceViewer" parent="." instance=ExtResource("22_12x0u")]
 visible = false
 
+[node name="UnsavedChangesDialog" type="AcceptDialog" parent="."]
+title = "Unsaved Changes"
+size = Vector2i(235, 113)
+dialog_text = "You have unsaved changes!
+Would you like to Save?"
+dialog_close_on_escape = false
+script = ExtResource("23_5avfj")
+
 [connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/File" to="." method="OnFileMenuPressed"]
 [connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/Tools" to="." method="OnToolsMenuPressed"]
 [connection signal="id_pressed" from="Root/VBoxContainer/MenuBar/Help" to="." method="OnHelpMenuIdPressed"]
-[connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button2" to="." method="OnOpenPressed"]
-[connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button3" to="." method="OnSavePressed"]
-[connection signal="pressed" from="Root/VBoxContainer/Toolbar/Button10" to="." method="OnOpenDatabase"]
+[connection signal="pressed" from="Root/VBoxContainer/Toolbar/btnOpen" to="." method="OnOpenPressed"]
+[connection signal="pressed" from="Root/VBoxContainer/Toolbar/btnSave" to="." method="OnSavePressed"]
+[connection signal="pressed" from="Root/VBoxContainer/Toolbar/btnDatabase" to="." method="OnOpenDatabase"]
+[connection signal="pressed" from="Root/VBoxContainer/Toolbar/btnTestPlay" to="." method="OnPlaytestPressed"]
 [connection signal="file_selected" from="FileDialog" to="." method="OnOpenFilePicked"]

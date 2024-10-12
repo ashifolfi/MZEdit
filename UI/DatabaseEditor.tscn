@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3ackpt0i31l1"]
+[gd_scene load_steps=7 format=3 uid="uid://c3ackpt0i31l1"]
 
 [ext_resource type="Script" path="res://UI/DatabaseEditor.cs" id="1_n6u3m"]
 [ext_resource type="PackedScene" uid="uid://i1d5vcjxjdkk" path="res://UI/Components/ActorEditor.tscn" id="2_257u2"]
+[ext_resource type="PackedScene" uid="uid://1l1r5mykobe4" path="res://UI/Components/SystemEditor1.tscn" id="3_be27w"]
+[ext_resource type="PackedScene" uid="uid://cjdiegfgvh2ua" path="res://UI/Components/SystemEditor2.tscn" id="4_qwbew"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ihqxk"]
 content_margin_left = 5.0
@@ -16,7 +18,7 @@ font_size = 32
 [node name="DatabaseEditor" type="Window" node_paths=PackedStringArray("ActorList", "ActorEditor", "ClassList", "ItemList")]
 title = "Database"
 position = Vector2i(0, 24)
-size = Vector2i(1090, 864)
+size = Vector2i(1190, 864)
 unresizable = true
 script = ExtResource("1_n6u3m")
 ActorList = NodePath("Root/TabContainer/Actors/VBoxContainer/ItemList")
@@ -34,9 +36,10 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ihqxk")
 
 [node name="TabContainer" type="TabContainer" parent="Root"]
 layout_mode = 2
-current_tab = 0
+current_tab = 12
 
 [node name="Actors" type="HSplitContainer" parent="Root/TabContainer"]
+visible = false
 layout_mode = 2
 collapsed = true
 dragger_visibility = 2
@@ -238,14 +241,20 @@ layout_mode = 2
 metadata/_tab_index = 11
 
 [node name="System 1" type="HBoxContainer" parent="Root/TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 12
+
+[node name="SystemEditor1" parent="Root/TabContainer/System 1" instance=ExtResource("3_be27w")]
+layout_mode = 2
 
 [node name="System 2" type="HBoxContainer" parent="Root/TabContainer"]
 visible = false
 layout_mode = 2
 metadata/_tab_index = 13
+
+[node name="SystemEditor2" parent="Root/TabContainer/System 2" instance=ExtResource("4_qwbew")]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [node name="Types" type="HBoxContainer" parent="Root/TabContainer"]
 visible = false

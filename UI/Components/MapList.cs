@@ -3,7 +3,7 @@ using MZEdit.Data;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace MZEdit.UI;
+namespace MZEdit.UI.Components;
 
 public partial class MapList : Tree
 {

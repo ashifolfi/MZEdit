@@ -19,22 +19,54 @@ public partial class ActorEditor : Control
 
     public Action ActorEdited;
 
-    [Export] public TextureRect FieldFace;
-    [Export] public TextureRect FieldCharacter;
-    [Export] public TextureRect FieldBattler;
-    [Export] public LineEdit FieldName;
-    [Export] public LineEdit FieldNickName;
-    [Export] public OptionButton FieldClass;
-    [Export] public SpinBox FieldInitialLevel;
-    [Export] public SpinBox FieldMaxLevel;
-    [Export] public TextEdit FieldProfile;
-    [Export] public TextEdit FieldNote;
-    
+    [ExportCategory("SubControls (PRIVATE)")]
+    [Export] private TextureRect FieldFace;
+    [Export] private TextureRect FieldCharacter;
+    [Export] private TextureRect FieldBattler;
+    [Export] private LineEdit FieldName;
+    [Export] private LineEdit FieldNickName;
+    [Export] private OptionButton FieldClass;
+    [Export] private SpinBox FieldInitialLevel;
+    [Export] private SpinBox FieldMaxLevel;
+    [Export] private TextEdit FieldProfile;
+    [Export] private TextEdit FieldNote;
+    [Export] private Tree TraitsTree;
+    [Export] private Tree EquipmentTree;
+
+    public override void _Ready()
+    {
+        TraitsTree.HideRoot = true;
+        TraitsTree.CreateItem();
+        TraitsTree.SetColumnTitle(0, Tr("Type"));
+        TraitsTree.SetColumnTitle(1, Tr("Content"));
+
+        EquipmentTree.HideRoot = true;
+        EquipmentTree.CreateItem();
+        EquipmentTree.SetColumnTitle(0, Tr("Type"));
+        EquipmentTree.SetColumnTitle(1, Tr("Equipment Item"));
+
+        {
+            var itemNames = new string[]
+            {
+                Tr("Weapon"),
+                Tr("Shield"),
+                Tr("Head"),
+                Tr("Body"),
+                Tr("Accessory")
+            };
+            foreach (var itemName in itemNames)
+            {
+                var item = EquipmentTree.CreateItem();
+                item.SetText(0, itemName);
+                item.SetText(1, "None");
+            }
+        }
+    }
+
     public void RefreshInterface()
     {
         FieldName.Text = m_Actor.Name;
         FieldNickName.Text = m_Actor.Nickname;
-
 
         FieldClass.Clear();
         foreach (var classInf in EditorMain.Instance.Classes)

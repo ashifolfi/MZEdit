@@ -20,7 +20,7 @@ public partial class AudioPreview : VBoxContainer
         }
     }
 
-    [ExportGroup("SubControls (PRIVATE)")]
+    [ExportCategory("SubControls (PRIVATE)")]
     [Export] private RichTextLabel AudioInfo;
     [Export] private Slider SeekBar;
     [Export] private Label EndTimeLabel;
