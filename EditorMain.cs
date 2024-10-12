@@ -28,6 +28,7 @@ public partial class EditorMain : Node
     public List<MVItem?> Items;
     public List<MVMapInfo?> MapInfos;
     public List<MVTileset?> Tilesets;
+    public List<MVWeapon?> Weapons;
 
     public Action OnProjectLoaded;
 
@@ -49,12 +50,17 @@ public partial class EditorMain : Node
         Log.Info("Configured Logger");
 
         Instance = this;
+
         ProjectPath = "";
         SystemData = null;
         MapInfos = null;
         Actors = null;
+        Armors = null;
         Classes = null;
         CommonEvents = null;
+        Tilesets = null;
+        Weapons = null;
+
         DirtyProject = false;
     }
 
@@ -89,6 +95,7 @@ public partial class EditorMain : Node
         File.WriteAllText(Path.Combine(dataDir, "Items.json"), JsonConvert.SerializeObject(Items));
         File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), JsonConvert.SerializeObject(MapInfos));
         File.WriteAllText(Path.Combine(dataDir, "Tilesets.json"), JsonConvert.SerializeObject(Tilesets));
+        File.WriteAllText(Path.Combine(dataDir, "Weapons.json"), JsonConvert.SerializeObject(Weapons));
 
         Log.Info($"Saved project {SystemData.GameTitle}");
         DirtyProject = false;
@@ -113,6 +120,7 @@ public partial class EditorMain : Node
         Items = JsonConvert.DeserializeObject<List<MVItem?>>(File.ReadAllText(Path.Combine(dataDir, "Items.json")));
         MapInfos = JsonConvert.DeserializeObject<List<MVMapInfo?>>(File.ReadAllText(Path.Combine(dataDir, "MapInfos.json")));
         Tilesets = JsonConvert.DeserializeObject<List<MVTileset?>>(File.ReadAllText(Path.Combine(dataDir, "Tilesets.json")));
+        Weapons = JsonConvert.DeserializeObject<List<MVWeapon?>>(File.ReadAllText(Path.Combine(dataDir, "Weapons.json")));
 
         Log.Info($"Loaded project {SystemData.GameTitle}");
         OnProjectLoaded?.Invoke();
