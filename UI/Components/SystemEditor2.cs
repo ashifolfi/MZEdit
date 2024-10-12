@@ -99,19 +99,59 @@ public partial class SystemEditor2 : Control
         switch (item.GetIndex())
         {
             case 0: // Game ID
-                EditorMain.Instance.SystemData.Advanced.GameId = Convert.ToInt32(item.GetText(1));
+                try
+                {
+                    EditorMain.Instance.SystemData.Advanced.GameId = Convert.ToInt32(item.GetText(1));
+                }
+                catch
+                {
+                    item.SetText(1, Convert.ToString(EditorMain.Instance.SystemData.Advanced.GameId));
+                }
+                
                 break;
             case 1: // Screen Width
-                EditorMain.Instance.SystemData.Advanced.ScreenWidth = Convert.ToInt32(item.GetText(1));
+                try
+                {
+                    EditorMain.Instance.SystemData.Advanced.ScreenWidth = Convert.ToInt32(item.GetText(1));
+                }
+                catch
+                {
+                    item.SetText(1, Convert.ToString(EditorMain.Instance.SystemData.Advanced.ScreenWidth));
+                }
+
                 break;
             case 2: // Screen Height
-                EditorMain.Instance.SystemData.Advanced.ScreenHeight = Convert.ToInt32(item.GetText(1));
+                try
+                {
+                    EditorMain.Instance.SystemData.Advanced.ScreenHeight = Convert.ToInt32(item.GetText(1));
+                }
+                catch
+                {
+                    item.SetText(1, Convert.ToString(EditorMain.Instance.SystemData.Advanced.ScreenHeight));
+                }
+
                 break;
             case 3: // UI Area Width
-                EditorMain.Instance.SystemData.Advanced.UiAreaWidth = Convert.ToInt32(item.GetText(1));
+                try
+                {
+                    EditorMain.Instance.SystemData.Advanced.UiAreaWidth = Convert.ToInt32(item.GetText(1));
+                }
+                catch
+                {
+                    item.SetText(1, Convert.ToString(EditorMain.Instance.SystemData.Advanced.UiAreaWidth));
+                }
+
                 break;
             case 4: // UI Area Height
-                EditorMain.Instance.SystemData.Advanced.UiAreaHeight = Convert.ToInt32(item.GetText(1));
+                try
+                {
+                    EditorMain.Instance.SystemData.Advanced.UiAreaHeight = Convert.ToInt32(item.GetText(1));
+                }
+                catch
+                {
+                    item.SetText(1, Convert.ToString(EditorMain.Instance.SystemData.Advanced.UiAreaHeight));
+                }
+
                 break;
             case 5: // Main Font Filename
                 EditorMain.Instance.SystemData.Advanced.MainFontFilename = item.GetText(1);
@@ -123,7 +163,15 @@ public partial class SystemEditor2 : Control
                 EditorMain.Instance.SystemData.Advanced.FallbackFonts = item.GetText(1);
                 break;
             case 8: // Font Size
-                EditorMain.Instance.SystemData.Advanced.FontSize = Convert.ToInt32(item.GetText(1));
+                try
+                {
+                    EditorMain.Instance.SystemData.Advanced.FontSize = Convert.ToInt32(item.GetText(1));
+                }
+                catch
+                {
+                    item.SetText(1, Convert.ToString(EditorMain.Instance.SystemData.Advanced.FontSize));
+                }
+
                 break;
         }
     }
