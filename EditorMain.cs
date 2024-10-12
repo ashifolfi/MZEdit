@@ -7,6 +7,7 @@ using MZEdit.Data;
 using System.IO;
 using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Security.Policy;
 
 namespace MZEdit;
 
@@ -25,6 +26,7 @@ public partial class EditorMain : Node
     public List<MVArmor?> Armors;
     public List<MVClass?> Classes;
     public List<MVEvent?> CommonEvents;
+    public List<MVEnemy?> Enemies;
     public List<MVItem?> Items;
     public List<MVMapInfo?> MapInfos;
     public List<MVSkill?> Skills;
@@ -55,11 +57,15 @@ public partial class EditorMain : Node
 
         ProjectPath = "";
         SystemData = null;
-        MapInfos = null;
         Actors = null;
         Armors = null;
         Classes = null;
         CommonEvents = null;
+        Enemies = null;
+        Items = null;
+        MapInfos = null;
+        Skills = null;
+        States = null;
         Tilesets = null;
         Weapons = null;
 
@@ -94,6 +100,7 @@ public partial class EditorMain : Node
         File.WriteAllText(Path.Combine(dataDir, "Armors.json"), JsonConvert.SerializeObject(Armors));
         File.WriteAllText(Path.Combine(dataDir, "Classes.json"), JsonConvert.SerializeObject(Classes));
         File.WriteAllText(Path.Combine(dataDir, "CommonEvents.json"), JsonConvert.SerializeObject(CommonEvents));
+        File.WriteAllText(Path.Combine(dataDir, "Enemies.json"), JsonConvert.SerializeObject(Enemies));
         File.WriteAllText(Path.Combine(dataDir, "Items.json"), JsonConvert.SerializeObject(Items));
         File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), JsonConvert.SerializeObject(MapInfos));
         File.WriteAllText(Path.Combine(dataDir, "Skills.json"), JsonConvert.SerializeObject(Skills));
@@ -121,6 +128,7 @@ public partial class EditorMain : Node
         Armors = JsonConvert.DeserializeObject<List<MVArmor?>>(File.ReadAllText(Path.Combine(dataDir, "Armors.json")));
         Classes = JsonConvert.DeserializeObject<List<MVClass?>>(File.ReadAllText(Path.Combine(dataDir, "Classes.json")));
         CommonEvents = JsonConvert.DeserializeObject<List<MVEvent?>>(File.ReadAllText(Path.Combine(dataDir, "CommonEvents.json")));
+        Enemies = JsonConvert.DeserializeObject<List<MVEnemy?>>(File.ReadAllText(Path.Combine(dataDir, "Enemies.json")));
         Items = JsonConvert.DeserializeObject<List<MVItem?>>(File.ReadAllText(Path.Combine(dataDir, "Items.json")));
         MapInfos = JsonConvert.DeserializeObject<List<MVMapInfo?>>(File.ReadAllText(Path.Combine(dataDir, "MapInfos.json")));
         Skills = JsonConvert.DeserializeObject<List<MVSkill?>>(File.ReadAllText(Path.Combine(dataDir, "Skills.json")));
