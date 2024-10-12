@@ -15,8 +15,8 @@ public class MVEnemy
 
     public struct SAction
     {
-        [JsonProperty("conditionParam1")] public int ConditionParam1;
-        [JsonProperty("conditionParam2")] public int ConditionParam2;
+        [JsonProperty("conditionParam1")] public float ConditionParam1;
+        [JsonProperty("conditionParam2")] public float ConditionParam2;
         [JsonProperty("conditionType")] public int ConditionType;
         [JsonProperty("rating")] public int Rating;
         [JsonProperty("skillId")] public int SkillId;
