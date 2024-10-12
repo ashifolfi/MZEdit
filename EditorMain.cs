@@ -19,13 +19,16 @@ public partial class EditorMain : Node
     private static readonly ILog Log = LogManager.GetLogger("Editor");
 
     public string ProjectPath;
+
     public MVSystem SystemData;
-    public List<MVMapInfo?> MapInfos;
     public List<MVActor?> Actors;
+    public List<MVArmor?> Armors;
     public List<MVClass?> Classes;
     public List<MVEvent?> CommonEvents;
     public List<MVItem?> Items;
+    public List<MVMapInfo?> MapInfos;
     public List<MVTileset?> Tilesets;
+
     public Action OnProjectLoaded;
 
     /// <summary>
@@ -78,21 +81,14 @@ public partial class EditorMain : Node
     {
         string dataDir = Path.Combine(ProjectPath, "data");
 
-        string systemSerialized = JsonConvert.SerializeObject(SystemData);
-        string actorsSerialized = JsonConvert.SerializeObject(Actors);
-        string classesSerialized = JsonConvert.SerializeObject(Classes);
-        string commonEventsSerialized = JsonConvert.SerializeObject(CommonEvents);
-        string itemsSerialized = JsonConvert.SerializeObject(Items);
-        string mapinfosSerialized = JsonConvert.SerializeObject(MapInfos);
-        string tilesetsSerialized = JsonConvert.SerializeObject(Tilesets);
-
-        File.WriteAllText(Path.Combine(dataDir, "System.json"), systemSerialized);
-        File.WriteAllText(Path.Combine(dataDir, "Actors.json"), actorsSerialized);
-        File.WriteAllText(Path.Combine(dataDir, "Classes.json"), classesSerialized);
-        File.WriteAllText(Path.Combine(dataDir, "CommonEvents.json"), commonEventsSerialized);
-        File.WriteAllText(Path.Combine(dataDir, "Items.json"), itemsSerialized);
-        File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), mapinfosSerialized);
-        File.WriteAllText(Path.Combine(dataDir, "Tilesets.json"), tilesetsSerialized);
+        File.WriteAllText(Path.Combine(dataDir, "System.json"), JsonConvert.SerializeObject(SystemData));
+        File.WriteAllText(Path.Combine(dataDir, "Actors.json"), JsonConvert.SerializeObject(Actors));
+        File.WriteAllText(Path.Combine(dataDir, "Armors.json"), JsonConvert.SerializeObject(Armors));
+        File.WriteAllText(Path.Combine(dataDir, "Classes.json"), JsonConvert.SerializeObject(Classes));
+        File.WriteAllText(Path.Combine(dataDir, "CommonEvents.json"), JsonConvert.SerializeObject(CommonEvents));
+        File.WriteAllText(Path.Combine(dataDir, "Items.json"), JsonConvert.SerializeObject(Items));
+        File.WriteAllText(Path.Combine(dataDir, "MapInfos.json"), JsonConvert.SerializeObject(MapInfos));
+        File.WriteAllText(Path.Combine(dataDir, "Tilesets.json"), JsonConvert.SerializeObject(Tilesets));
 
         Log.Info($"Saved project {SystemData.GameTitle}");
         DirtyProject = false;
@@ -111,6 +107,7 @@ public partial class EditorMain : Node
         string dataDir = Path.Combine(ProjectPath, "data");
         SystemData = JsonConvert.DeserializeObject<MVSystem>(File.ReadAllText(Path.Combine(dataDir, "System.json")));
         Actors = JsonConvert.DeserializeObject<List<MVActor?>>(File.ReadAllText(Path.Combine(dataDir, "Actors.json")));
+        Armors = JsonConvert.DeserializeObject<List<MVArmor?>>(File.ReadAllText(Path.Combine(dataDir, "Armors.json")));
         Classes = JsonConvert.DeserializeObject<List<MVClass?>>(File.ReadAllText(Path.Combine(dataDir, "Classes.json")));
         CommonEvents = JsonConvert.DeserializeObject<List<MVEvent?>>(File.ReadAllText(Path.Combine(dataDir, "CommonEvents.json")));
         Items = JsonConvert.DeserializeObject<List<MVItem?>>(File.ReadAllText(Path.Combine(dataDir, "Items.json")));
